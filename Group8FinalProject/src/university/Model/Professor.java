@@ -4,6 +4,7 @@
  */
 package university.Model;
 
+
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
  * @author bharg
  */
 public class Professor {
+
     String profName;
     String subjectTeach;
     String Email;
@@ -84,4 +86,5 @@ public class Professor {
               //   JOptionPane.showMessageDialog(null,e);
             //}
     }
+
 }
