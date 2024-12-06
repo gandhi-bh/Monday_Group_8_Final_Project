@@ -505,8 +505,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Images/accounting-watts-scaled.jpg"/>
+                  <Image iconType="3" name="/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -561,7 +562,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="373" y="412" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="370" y="420" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -583,7 +584,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="397" y="447" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="400" y="440" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -602,8 +603,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Images/toppng.com-vignette-png-19201080-overlay-photo-1920x1080.png"/>
+                  <Image iconType="3" name="/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"/>
                 </Property>
               </Properties>
               <Constraints>
