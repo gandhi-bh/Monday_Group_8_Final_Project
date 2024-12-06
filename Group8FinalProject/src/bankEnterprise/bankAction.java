@@ -240,8 +240,10 @@ public class bankAction extends javax.swing.JFrame {
         });
         jPanel1.add(viewDBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 434, -1, -1));
 
+
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N
+
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
         jTabbedPane1.addTab("Status", jPanel1);
@@ -261,7 +263,9 @@ public class bankAction extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 153));
         jLabel10.setText("Report a crime to NUPD?");
+
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
+
 
         btnReportCrime1.setBackground(new java.awt.Color(0, 0, 0));
         btnReportCrime1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -272,14 +276,18 @@ public class bankAction extends javax.swing.JFrame {
                 btnReportCrime1ActionPerformed(evt);
             }
         });
+
         jPanel2.add(btnReportCrime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, -1));
+
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel15.setText("End Current Session?");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
 
+
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N
+
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/accounting-watts-scaled.jpg"))); // NOI18N
