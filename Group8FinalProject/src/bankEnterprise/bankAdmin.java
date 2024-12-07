@@ -45,7 +45,6 @@ public class bankAdmin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         employeeTable = new javax.swing.JTable();
         viewBtn = new javax.swing.JButton();
-        jLabelLogo = new javax.swing.JLabel();
         updateBtn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -123,9 +122,6 @@ public class bankAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 467, -1, -1));
-
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/northeastern-university-student-financial-services-2-removebg-preview.png"))); // NOI18N
-        jPanel1.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 12, -1, 69));
 
         updateBtn.setBackground(new java.awt.Color(0, 0, 0));
         updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -429,7 +425,6 @@ String EmployeeUsername = "";
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTxt;

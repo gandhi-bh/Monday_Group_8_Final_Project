@@ -40,7 +40,6 @@ public class bankServices extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabelBankServicesLogo = new javax.swing.JLabel();
         operationTxt = new javax.swing.JComboBox<>();
         accountTxt = new javax.swing.JComboBox<>();
         btnStudLogout = new javax.swing.JButton();
@@ -87,9 +86,6 @@ public class bankServices extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
         jLabel1.setText("Welcome Users");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
-
-        jLabelBankServicesLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/northeastern-university-student-financial-services-2-removebg-preview.png"))); // NOI18N
-        jPanel1.add(jLabelBankServicesLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 94, -1, 84));
 
         operationTxt.setForeground(new java.awt.Color(255, 255, 255));
         operationTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Request Loan", " " }));
@@ -232,7 +228,6 @@ public class bankServices extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabelBankServicesLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nameTxt;
     private javax.swing.JComboBox<String> operationTxt;
