@@ -60,18 +60,18 @@ public class InventoryEnterpriseLogin extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("INVENTORY ENTERPRISE LOGIN ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
 
         labelUsername.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        labelUsername.setForeground(new java.awt.Color(0, 0, 0));
+
         labelUsername.setText("USERNAME: ");
         jPanel1.add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
 
         labelPassword.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        labelPassword.setForeground(new java.awt.Color(0, 0, 0));
+
         labelPassword.setText("PASSWORD: ");
         jPanel1.add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 80, -1));
         jPanel1.add(tfUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 200, -1));
@@ -84,7 +84,7 @@ public class InventoryEnterpriseLogin extends javax.swing.JFrame {
         jPanel1.add(pfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 200, -1));
 
         labelRole.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        labelRole.setForeground(new java.awt.Color(0, 0, 0));
+
         labelRole.setText("ROLE:");
         jPanel1.add(labelRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 74, -1));
 
@@ -93,7 +93,7 @@ public class InventoryEnterpriseLogin extends javax.swing.JFrame {
 
         buttonLogin.setBackground(new java.awt.Color(0, 153, 153));
         buttonLogin.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        buttonLogin.setForeground(new java.awt.Color(0, 0, 0));
+
         buttonLogin.setText("LOGIN ");
         buttonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +104,7 @@ public class InventoryEnterpriseLogin extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +116,10 @@ public class InventoryEnterpriseLogin extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UHCS2-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 230, 120));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UCSbg.jpg"))); // NOI18N
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(new)ai-generated-national-doctors-da.jpg"))); // NOI18N
+
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -91,13 +91,13 @@ public class Medicines extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE MEDICINES");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 272, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel2.setText("ID:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 106, 48, -1));
 
@@ -109,17 +109,17 @@ public class Medicines extends javax.swing.JFrame {
         getContentPane().add(tfID, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 102, 124, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel3.setText("MEDICINE NAME");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel4.setText("PRICE");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 75, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel5.setText("QUANTITY");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 208, 75, -1));
 
@@ -139,16 +139,23 @@ public class Medicines extends javax.swing.JFrame {
         getContentPane().add(tfQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 204, 170, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+
         jLabel8.setText("COMPANY");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 249, 79, -1));
 
         cbCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cipla", "Vertex", "Pfizer", "Roche", "Merck" }));
+
+        cbCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCompanyActionPerformed(evt);
+            }
+        });
+
         getContentPane().add(cbCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 245, -1, -1));
 
         buttonAdd.setBackground(new java.awt.Color(0, 153, 153));
         buttonAdd.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        buttonAdd.setForeground(new java.awt.Color(0, 0, 0));
+
         buttonAdd.setText("ADD");
         buttonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +166,7 @@ public class Medicines extends javax.swing.JFrame {
 
         buttonUpdate.setBackground(new java.awt.Color(0, 153, 153));
         buttonUpdate.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        buttonUpdate.setForeground(new java.awt.Color(0, 0, 0));
+
         buttonUpdate.setText("UPDATE");
         buttonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +177,7 @@ public class Medicines extends javax.swing.JFrame {
 
         buttonDelete.setBackground(new java.awt.Color(0, 153, 153));
         buttonDelete.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        buttonDelete.setForeground(new java.awt.Color(0, 0, 0));
+
         buttonDelete.setText("DELETE");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +187,7 @@ public class Medicines extends javax.swing.JFrame {
         getContentPane().add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, -1, -1));
 
         tableMedicine.setBackground(new java.awt.Color(204, 255, 255));
-        tableMedicine.setForeground(new java.awt.Color(0, 0, 0));
+
         tableMedicine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -201,7 +208,7 @@ public class Medicines extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("MEDICINE TABLE");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -213,7 +220,7 @@ public class Medicines extends javax.swing.JFrame {
 
         buttonSearch.setBackground(new java.awt.Color(0, 153, 153));
         buttonSearch.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        buttonSearch.setForeground(new java.awt.Color(0, 0, 0));
+
         buttonSearch.setText("VIEW");
         buttonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +231,7 @@ public class Medicines extends javax.swing.JFrame {
 
         buttonCancel.setBackground(new java.awt.Color(0, 153, 153));
         buttonCancel.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        buttonCancel.setForeground(new java.awt.Color(0, 0, 0));
+
         buttonCancel.setText("Log out");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +240,10 @@ public class Medicines extends javax.swing.JFrame {
         });
         getContentPane().add(buttonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(795, 20, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UCSbg.jpg"))); // NOI18N
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(new)ai-generated-national-doctors-da.jpg"))); // NOI18N
+
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 510));
 
         pack();
@@ -426,6 +436,12 @@ public class Medicines extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
          }
     }//GEN-LAST:event_buttonSearchActionPerformed
+
+
+    private void cbCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCompanyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCompanyActionPerformed
+
 
     /**
      * @param args the command line arguments
