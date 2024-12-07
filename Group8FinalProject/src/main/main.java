@@ -7,7 +7,11 @@ package main;
  */
 //package view.panel;
 
+import Pharmacy.InventoryEnterpriseLogin;
+import bankEnterprise.financialLogin;
+import emergencyEnterprise.emergencyLogin;
 import javax.swing.JOptionPane;
+import university.uniLogin;
 
 
 /**
@@ -83,7 +87,24 @@ public class main extends javax.swing.JFrame {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-
+         String str =  comboRole.getSelectedItem().toString();
+        
+        if(str.equals("University Enterprise")){
+            setVisible(false);
+            new uniLogin().setVisible(true);
+        }else if(str.equals("Emergency Enterprise")){
+            setVisible(false);
+            new emergencyLogin().setVisible(true);
+        }else if(str.equals("Financial Enterprise")){
+            setVisible(false);
+            new financialLogin().setVisible(true);
+        }else if(str.equals("Pharmacy Enterprise")){
+            setVisible(false);
+            new InventoryEnterpriseLogin().setVisible(true);
+        }
+        else{
+            setVisible(false);
+        }
     }//GEN-LAST:event_submitBtnActionPerformed
         
 

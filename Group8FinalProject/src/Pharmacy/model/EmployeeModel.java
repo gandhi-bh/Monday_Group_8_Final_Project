@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author prathamesh
+ * @author akshtalati
  */
 public class EmployeeModel {
 

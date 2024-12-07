@@ -428,7 +428,7 @@ public class policeAdmin extends javax.swing.JFrame {
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPD-login logo.png"))); // NOI18N
         jPanel4.add(jLabel19);
-        jLabel19.setBounds(377, 108, 0, 200);
+        jLabel19.setBounds(377, 108, 140, 200);
 
         jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
