@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ashis
+ * @author bharg
  */
 public class crimeaction {
      String name ;

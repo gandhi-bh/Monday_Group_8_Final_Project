@@ -2,27 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package emergencyEnterprise.emergency.Model;
+package bankEnterprise.bank.Model;
 
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author bharg
+ * @author akshtalati
  */
-public class crimereport {
-     String name ;
-        
+public class bankEmployee {
+           
+        String name ;
+        String gender ;
+        int age ;
         int phone ;
-        String address ;
-        String cd ;
+
+        String username ;
+        String password ;
         
-         public crimereport(String name, int phone,String address, String cd){
+        public bankEmployee(String name,String gender,int age, int phone,String username, String password){
             this.setName(name);
             this.setPhone(phone);
-            this.setAddress(address);
-            this.setCd(cd);
+            this.setAge(age);
+            this.setGender(gender);
+            this.setUsername(username);
+            this.setPassword(password);
        }
 
     public String getName() {
@@ -33,6 +38,22 @@ public class crimereport {
         this.name = name;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public int getPhone() {
         return phone;
     }
@@ -41,24 +62,23 @@ public class crimereport {
         this.phone = phone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getCd() {
-        return cd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCd(String cd) {
-        this.cd = cd;
+    public void setPassword(String password) {
+        this.password = password;
     }
-        
-    public void addCrime(){
     
+    public void addEmployee(){
          try{
             java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
             
@@ -66,19 +86,21 @@ public class crimereport {
             java.sql.Statement statement = connection.createStatement();
                         System.out.println("connection open");
 
-            String query = "INSERT INTO universitysystem.crimeReport (name,phone,address,crimeDetails) values(?,?,?,?)";
+            String query = "INSERT INTO universitysystem.bankemployee (Name,Gender,Age,Phone,username,password) values(?,?,?,?,?,?)";
                         System.out.println("connection insert");
 
            // java.sql.PreparedStatement preparedStmt = connection.prepareStatement(query);
             java.sql.PreparedStatement preparedStmt = connection.prepareStatement(query);
             preparedStmt.setString(1,name);
+            preparedStmt.setString(2,gender);
             
             System.out.println("connection insert");
             
-            preparedStmt.setInt(2,phone);
-            preparedStmt.setString(3,address);
-            preparedStmt.setString(4,cd);
-
+            preparedStmt.setInt(3,age);
+            preparedStmt.setInt(4,phone);
+           
+            preparedStmt.setString(5,username);
+            preparedStmt.setString(6,password);
 
             System.out.println("connection insert");
 
@@ -91,8 +113,7 @@ public class crimereport {
         catch(Exception e){
             System.out.println(e);
             JOptionPane.showMessageDialog(null,"please add data in correct format!");
-        }      
-         
-    }   
-        
+        }  
+    
+    }
 }

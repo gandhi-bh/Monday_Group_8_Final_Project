@@ -296,7 +296,7 @@ public class staffAdmin extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Professors", jPanel1);
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(153, 0, 0));
 
         btnUniAdminLogout.setBackground(new java.awt.Color(153, 0, 0));
         btnUniAdminLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
