@@ -42,7 +42,6 @@ public class emergencyLogin extends javax.swing.JFrame {
         lblUsername = new javax.swing.JTextField();
         lblPassword = new javax.swing.JTextField();
         btnPoliceBack = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,10 +66,10 @@ public class emergencyLogin extends javax.swing.JFrame {
         jLabelTitleEmergencyLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabelTitleEmergencyLogin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitleEmergencyLogin.setText("Emergency Login");
-        jPanel1.add(jLabelTitleEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 134, -1));
+        jPanel1.add(jLabelTitleEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 134, -1));
 
         jLabelSymbolEmergencyLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPD-login logo.png"))); // NOI18N
-        jPanel1.add(jLabelSymbolEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 140, 190));
+        jPanel1.add(jLabelSymbolEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, -10, 140, 190));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,9 +97,6 @@ public class emergencyLogin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPoliceBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/images.jpeg"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 240, 270));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 510));
@@ -207,7 +203,6 @@ public class emergencyLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelSymbolEmergencyLogin;
     private javax.swing.JLabel jLabelTitleEmergencyLogin;
     private javax.swing.JPanel jPanel1;

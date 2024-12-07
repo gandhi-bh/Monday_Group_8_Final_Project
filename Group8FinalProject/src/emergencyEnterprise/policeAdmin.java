@@ -107,6 +107,7 @@ public class policeAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 102));
+        jTabbedPane1.setForeground(new java.awt.Color(242, 242, 242));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -284,7 +285,7 @@ public class policeAdmin extends javax.swing.JFrame {
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDnobg.png"))); // NOI18N
         jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 90, 90));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane1.addTab("Complaint Records", jPanel2);
@@ -408,7 +409,7 @@ public class policeAdmin extends javax.swing.JFrame {
         jLabel11.setText("Student");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 510));
 
         jTabbedPane1.addTab("Documentation", jPanel3);
@@ -424,7 +425,7 @@ public class policeAdmin extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnStudLogout);
-        btnStudLogout.setBounds(410, 340, 72, 23);
+        btnStudLogout.setBounds(410, 340, 72, 22);
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPD-login logo.png"))); // NOI18N
         jPanel4.add(jLabel19);
@@ -436,7 +437,7 @@ public class policeAdmin extends javax.swing.JFrame {
         jPanel4.add(jLabel21);
         jLabel21.setBounds(380, 310, 140, 17);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
         jPanel4.add(jLabel20);
         jLabel20.setBounds(0, 0, 900, 510);
 
