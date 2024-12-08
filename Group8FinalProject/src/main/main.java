@@ -16,7 +16,7 @@ import university.uniLogin;
 
 /**
  *
- * @author akshtalati
+ * @author varananavadiya
  */
 public class main extends javax.swing.JFrame {
 

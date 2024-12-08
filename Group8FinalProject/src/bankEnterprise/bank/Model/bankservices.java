@@ -62,7 +62,7 @@ public class bankservices {
     public void addServices(){
         try{
             
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
 
             String query = "INSERT INTO universitysystem.bankservices (Name,AccountType,Operation,Amount) values(?,?,?,?)";

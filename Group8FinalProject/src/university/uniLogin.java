@@ -121,7 +121,7 @@ public class uniLogin extends javax.swing.JFrame {
         
         if(role.equals("Student")){
          try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.students WHERE username = '"+username+"' and password = '"+password+"'";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -142,7 +142,7 @@ public class uniLogin extends javax.swing.JFrame {
         }   
         }else if(role.equals("Professor")){
             try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.professors WHERE username = '"+username+"' and password = '"+password+"'";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);

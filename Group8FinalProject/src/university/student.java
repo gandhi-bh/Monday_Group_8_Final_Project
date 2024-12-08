@@ -349,7 +349,7 @@ public class student extends javax.swing.JFrame {
         public static void CreateCourseReg(String username, String Subject, String pName, String email, int age){
             
              try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             
             System.out.println("connection open");
             java.sql.Statement statement = connection.createStatement();
@@ -424,7 +424,7 @@ String profUserame = "";
         AgeTxt.setText(profTable.getValueAt(profTable.getSelectedRow(), 2).toString());
 
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.professors WHERE Name = '"+profNameTxt+"'";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);
@@ -444,7 +444,7 @@ String profUserame = "";
 
         String course = subjectTxt.getSelectedItem().toString();
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.professors WHERE subjectTeach = '"+course+"'";
 
@@ -509,7 +509,7 @@ String profUserame = "";
         DefaultTableModel tb1Model = (DefaultTableModel)resultsTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.coursegrade WHERE studentname = '"+currStudentName+"'";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);

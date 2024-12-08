@@ -462,7 +462,7 @@ System.out.println(PnameTxt);
 
 
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.police WHERE name = '"+PnameTxt+"'";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);
@@ -492,7 +492,7 @@ System.out.println(PnameTxt);
             JOptionPane.showMessageDialog(null,"Professor name is empty");
         }else{
             try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                 java.sql.Statement statement = connection.createStatement();
             String profQuery = "UPDATE universitysystem.police SET name = '"+Name+"', gender = '"+Gender+"', age = '"+age+"', phone = '"+phone+"',phone = '"+phone+"',phone = '"+phone+"' WHERE username = '"+policeUsername+"'";
             statement.executeUpdate(profQuery);
@@ -559,7 +559,7 @@ System.out.println(PnameTxt);
          DefaultTableModel tb1Model = (DefaultTableModel)detailsTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.crimedetails";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -601,7 +601,7 @@ System.out.println(PnameTxt);
           DefaultTableModel tb1Model = (DefaultTableModel)policeTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.police";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -630,7 +630,7 @@ System.out.println(PnameTxt);
            DefaultTableModel tb1Model = (DefaultTableModel)employeeTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.bankemployee";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -660,7 +660,7 @@ System.out.println(PnameTxt);
           DefaultTableModel tb1Model = (DefaultTableModel)policeTableD.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.police";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -689,7 +689,7 @@ System.out.println(PnameTxt);
          DefaultTableModel tb1Model = (DefaultTableModel)studentTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.students";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -716,7 +716,7 @@ System.out.println(PnameTxt);
          DefaultTableModel tb1Model = (DefaultTableModel)professorTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.professors";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -742,7 +742,7 @@ System.out.println(PnameTxt);
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         // TODO add your handling code here:
          try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
                 
             statement.executeUpdate("DELETE FROM universitysystem.police WHERE username = '"+policeUsername+"'");
@@ -767,7 +767,7 @@ System.out.println(PnameTxt);
     
     public void police_table(){
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             
             System.out.println("connection open");
             java.sql.Statement statement = connection.createStatement();

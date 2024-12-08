@@ -123,7 +123,7 @@ public class emergencyLogin extends javax.swing.JFrame {
         
         if(role.equals("Police")){
          try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.police WHERE username = '"+username+"' and password = '"+password+"'";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
