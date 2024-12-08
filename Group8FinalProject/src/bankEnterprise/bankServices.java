@@ -136,7 +136,7 @@ public class bankServices extends javax.swing.JFrame {
         } else{
             if(accountType.equals("Student Account") && operation.equals("Request Loan")){
                 try{
-                    java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                    java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                     java.sql.Statement statement = connection.createStatement();
                     String studentQuery = "SELECT * FROM universitysystem.students WHERE username = '"+username+"'";
                     java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -153,7 +153,7 @@ public class bankServices extends javax.swing.JFrame {
                 }
             }else if(accountType.equals("Police Account") && operation.equals("Deposit Salary")){
                 try{
-                    java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                    java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                     java.sql.Statement statement = connection.createStatement();
                     String studentQuery = "UPDATE universitysystem.police SET salary = salary + '"+amount+"' WHERE username = '"+username+"'";
                     statement.executeUpdate(studentQuery);

@@ -83,7 +83,7 @@ public class crimeaction {
     public void addaction(){
     
          try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             
             System.out.println("connection open");
             java.sql.Statement statement = connection.createStatement();

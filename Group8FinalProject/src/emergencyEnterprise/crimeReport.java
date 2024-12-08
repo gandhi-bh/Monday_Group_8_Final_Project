@@ -214,7 +214,7 @@ public class crimeReport extends javax.swing.JFrame {
 //        public static void CreateCrimeReport(String name, int phone, String address, String cd){
 //            
 //             try{
-//            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+//            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
 //            
 //            System.out.println("connection open");
 //            java.sql.Statement statement = connection.createStatement();
@@ -283,7 +283,7 @@ public class crimeReport extends javax.swing.JFrame {
         DefaultTableModel tb1Model = (DefaultTableModel)detailsTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.crimedetails WHERE Name = '"+currName+"'";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);

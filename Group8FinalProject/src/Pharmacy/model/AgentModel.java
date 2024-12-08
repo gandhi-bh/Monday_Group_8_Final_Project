@@ -80,39 +80,39 @@ public class AgentModel {
     }
     
         public void insertAgents(){
-//        try{
-//                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
-//
-//                statement.executeUpdate("insert into universitysystem.agent" + "(id, name, age, phone, password, gender)" + "values ('"+this.getId()+"','"+this.getName()+"','"+this.getAge()+"','"+this.getPhone()+"','"+this.getPassword()+"','"+this.getGender()+" ')");
-//                JOptionPane.showMessageDialog(null, "User successfully added!");
-//            }
-//            catch(Exception e){
-//                JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
-//
-//            }
+        try{
+                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
+
+                statement.executeUpdate("insert into universitysystem.agent" + "(id, name, age, phone, password, gender)" + "values ('"+this.getId()+"','"+this.getName()+"','"+this.getAge()+"','"+this.getPhone()+"','"+this.getPassword()+"','"+this.getGender()+" ')");
+                JOptionPane.showMessageDialog(null, "User successfully added!");
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+
+            }
     }
         
         public void updateAgents(){
-//        try{
-//                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
-//                String sql = "UPDATE universitysystem.agent SET id = '"+this.getId()+"',name = '"+this.getName()+"',age = '"+this.getAge()+"', phone = '"+this.getPhone()+"', password = '"+this.getPassword()+"', gender = '"+this.getGender()+"' WHERE id ='" +this.getId()+"'";
-//                statement.executeUpdate(sql);
-//
-//            }
-//            catch(Exception e){
-//                JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
-//
-//            }
+        try{
+                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
+                String sql = "UPDATE universitysystem.agent SET id = '"+this.getId()+"',name = '"+this.getName()+"',age = '"+this.getAge()+"', phone = '"+this.getPhone()+"', password = '"+this.getPassword()+"', gender = '"+this.getGender()+"' WHERE id ='" +this.getId()+"'";
+                statement.executeUpdate(sql);
+
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+
+            }
     }
         
         public void deleteAgents(){
-//        try{
-//                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
-//                String sql = "DELETE FROM universitysystem.agent WHERE id ='" +this.getId()+"'";
-//                statement.executeUpdate(sql);
-//            }
-//            catch(Exception e){
-//                JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
-//            }
+        try{
+                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
+                String sql = "DELETE FROM universitysystem.agent WHERE id ='" +this.getId()+"'";
+                statement.executeUpdate(sql);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+            }
     }
 }

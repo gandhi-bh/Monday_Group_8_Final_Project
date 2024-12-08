@@ -78,13 +78,13 @@ public class Professor {
     }
     
     public void addProfessor(){
-        //try{
-          //      java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
-            //    statement.executeUpdate("insert into universitysystem.professors" + "(Name, subjectTeach, Email, Age, username, password)" + "values ('"+this.profName+"','"+this.subjectTeach+"', '"+this.Email+"', '"+this.Age+"' , '"+this.username+"', '"+this.password+"')");
-              //  JOptionPane.showMessageDialog(null, "Professors successfully added!");
-            //}catch(Exception e){
-              //   JOptionPane.showMessageDialog(null,e);
-            //}
+        try{
+                java.sql.Statement statement = connection.JDBCconnection.Connect().createStatement();
+                statement.executeUpdate("insert into universitysystem.professors" + "(Name, subjectTeach, Email, Age, username, password)" + "values ('"+this.profName+"','"+this.subjectTeach+"', '"+this.Email+"', '"+this.Age+"' , '"+this.username+"', '"+this.password+"')");
+                JOptionPane.showMessageDialog(null, "Professors successfully added!");
+            }catch(Exception e){
+                 JOptionPane.showMessageDialog(null,e);
+            }
     }
 
 }

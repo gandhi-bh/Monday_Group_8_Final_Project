@@ -365,7 +365,7 @@ public class staffAdmin extends javax.swing.JFrame {
     public class Students{
         public static void createStudents(String name, String subjectTaken, String email, int age, String studUsername, String studPassword){
             try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                 java.sql.Statement statement = connection.createStatement();
                 
                 statement.executeUpdate("insert into universitysystem.students" + "(Name, SubjectTaken, Email, Age, username, password)" + "values ('"+name+"','"+subjectTaken+"', '"+email+"', '"+age+"', '"+studUsername+"', '"+studPassword+"')");
@@ -405,7 +405,7 @@ public class staffAdmin extends javax.swing.JFrame {
         studModel.setRowCount(0);
         
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.students";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -440,7 +440,7 @@ public class staffAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Student name is empty");
         }else{
             try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                 java.sql.Statement statement = connection.createStatement();
                 String profQuery = "UPDATE universitysystem.students SET Name = '"+studName+"', subjectTaken = '"+subjectTaken+"', Email = '"+studMail+"', Age = '"+age+"' WHERE username = '"+studUsername+"'";
                 statement.executeUpdate(profQuery);
@@ -465,7 +465,7 @@ public class staffAdmin extends javax.swing.JFrame {
         txtStudAge.setText(tblStud.getValueAt(tblStud.getSelectedRow(), 3).toString());
         
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studQuery = "SELECT * FROM universitysystem.students WHERE Name = '"+studNameTxt+"'";
             java.sql.ResultSet studData = statement.executeQuery(studQuery);
@@ -480,7 +480,7 @@ public class staffAdmin extends javax.swing.JFrame {
     private void btnStudDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudDeleteActionPerformed
         // TODO add your handling code here:
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
                 
             statement.executeUpdate("DELETE FROM universitysystem.students WHERE username = '"+studUsername+"'");
@@ -507,7 +507,7 @@ public class staffAdmin extends javax.swing.JFrame {
         profModel.setRowCount(0);
 
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.professors";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);
@@ -537,7 +537,7 @@ public class staffAdmin extends javax.swing.JFrame {
         txtProfAge.setText(tblProf.getValueAt(tblProf.getSelectedRow(), 3).toString());
 
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.professors WHERE Name = '"+profNameTxt+"'";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);
@@ -577,7 +577,7 @@ public class staffAdmin extends javax.swing.JFrame {
     private void btnProfDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfDeleteActionPerformed
         // TODO add your handling code here:
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
 
             statement.executeUpdate("DELETE FROM universitysystem.professors WHERE username = '"+profUserame+"'");
@@ -603,7 +603,7 @@ public class staffAdmin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Professor name is empty");
         }else{
             try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                 java.sql.Statement statement = connection.createStatement();
                 String profQuery = "UPDATE universitysystem.professors SET Name = '"+profName+"', subjectTeach = '"+subjectTeach+"', Email = '"+profMail+"', Age = '"+age+"' WHERE username = '"+profUserame+"'";
                 statement.executeUpdate(profQuery);

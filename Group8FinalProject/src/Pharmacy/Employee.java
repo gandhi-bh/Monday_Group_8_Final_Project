@@ -216,7 +216,7 @@ public class Employee extends javax.swing.JFrame {
         medModel.setRowCount(0);
         
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String getMedQuery = "SELECT * FROM universitysystem.medicine";
             java.sql.ResultSet medData = statement.executeQuery(getMedQuery);
@@ -248,7 +248,7 @@ public class Employee extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Not enough Quantity");
         }else{
             try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
                 java.sql.Statement statement = connection.createStatement();
                 statement.executeUpdate("UPDATE universitysystem.students SET medicineTaken = '"+medName+"', medicineQuant = medicineQuant + '"+medQuant+"' where username ='"+currStudUsername+"'");
                 statement.executeUpdate("UPDATE universitysystem.medicine SET QUANTITY = QUANTITY - '"+medQuant+"'");
@@ -293,7 +293,7 @@ public class Employee extends javax.swing.JFrame {
         medModel.setRowCount(0);
         
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String getMedQuery = "SELECT * FROM universitysystem.students where username = '"+currStudUsername+"'";
             java.sql.ResultSet medData = statement.executeQuery(getMedQuery);

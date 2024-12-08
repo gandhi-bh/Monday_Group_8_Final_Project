@@ -30,7 +30,7 @@ public class Medicines extends javax.swing.JFrame {
     public Medicines() {
         initComponents();
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             System.out.println("connection open");
             java.sql.Statement statement = connection.createStatement();
             String sql = "SELECT * FROM universitysystem.medicine";
@@ -318,7 +318,7 @@ public class Medicines extends javax.swing.JFrame {
     
     public void medicine_table(){
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "root@123");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "root123");
 
             java.sql.Statement statement = connection.createStatement();
             String sql = "SELECT * FROM universitysystem.medicine;";
@@ -416,7 +416,7 @@ public class Medicines extends javax.swing.JFrame {
         medModel.setRowCount(0);
         
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String getMedQuery = "SELECT * FROM universitysystem.medicine";
             java.sql.ResultSet medData = statement.executeQuery(getMedQuery);

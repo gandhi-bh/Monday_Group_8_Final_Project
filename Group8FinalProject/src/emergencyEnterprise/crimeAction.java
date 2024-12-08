@@ -218,7 +218,7 @@ public class crimeAction extends javax.swing.JFrame {
           DefaultTableModel tb1Model = (DefaultTableModel)crimeTable.getModel();
         tb1Model.setRowCount(0);
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.crimereport";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);

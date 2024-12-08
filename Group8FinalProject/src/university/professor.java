@@ -185,7 +185,7 @@ public class professor extends javax.swing.JFrame {
         studSubModel.setRowCount(0);
 
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.courseregistration WHERE Subject = '"+currSubjectTeach+"' and ProfessorName = '"+currProfUsername+"'";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
@@ -210,7 +210,7 @@ public class CourseGrade{
         public static void CreateCourseGrade(String sName, String Subject, String Grade, String Remarks){
             
              try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             
             System.out.println("connection open");
             java.sql.Statement statement = connection.createStatement();
@@ -288,7 +288,7 @@ public class CourseGrade{
         subjectTxt.setText(subjectTable.getValueAt(subjectTable.getSelectedRow(), 1).toString());
         
         try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user@1234");
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String profQuery = "SELECT * FROM universitysystem.courseregistration WHERE username = '"+studentNameTxt+"'";
             java.sql.ResultSet profData = statement.executeQuery(profQuery);
