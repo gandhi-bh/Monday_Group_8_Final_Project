@@ -177,13 +177,13 @@ public class student extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 147, -1, -1));
         jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 236, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Course Registration");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/University Logo Image.jpg"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 470));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo_Northeastern-University-300x222.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 290, 310));
 
         jTabbedPane1.addTab("Course Registration", jPanel1);
 
@@ -250,9 +250,9 @@ public class student extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 63, Short.MAX_VALUE)
+                .addGap(0, 73, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 63, Short.MAX_VALUE))
+                .addGap(0, 73, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -260,12 +260,10 @@ public class student extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-
         );
 
         jTabbedPane1.addTab("Grades", jPanel2);
@@ -389,39 +387,73 @@ public class student extends javax.swing.JFrame {
     
     
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        // TODO add your handling code here:
-         String username = txtStudUsername.getText();
-        String subject = (String) subjectTxt.getSelectedItem();
-        String pname = pnameTxt.getText();
-        String email = emailTxt.getText();
-        int age = Integer.parseInt(AgeTxt.getText());
+String username = txtStudUsername.getText();
+    String subject = (String) subjectTxt.getSelectedItem();
+    String pname = pnameTxt.getText();
+    String email = emailTxt.getText();
+    int age;
 
-        if(txtStudUsername.getText().isEmpty()|| AgeTxt.getText().isEmpty()||pnameTxt.getText().isEmpty()||emailTxt.getText().isEmpty()           ){
-            JOptionPane.showMessageDialog(null, "Plz Enter Details!");
+    // Validate input
+    try {
+        age = Integer.parseInt(AgeTxt.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Invalid Age. Please enter a valid number.");
+        return;
+    }
 
-        } else{
+    if (username.isEmpty() || pname.isEmpty() || email.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter all details!");
+        return;
+    }
 
-            // Community.CreateCommunity(house,person,community,city,hospital);
-            CourseReg.CreateCourseReg(username,subject,pname,email,age);
+    try {
+        // Establish connection to the database
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+
+        // Check if already registered
+        String checkQuery = "SELECT * FROM courseregistration WHERE username = ? AND Subject = ?";
+        java.sql.PreparedStatement checkStmt = connection.prepareStatement(checkQuery);
+        checkStmt.setString(1, username);
+        checkStmt.setString(2, subject);
+
+        java.sql.ResultSet resultSet = checkStmt.executeQuery();
+        if (resultSet.next()) {
+            // Student is already registered
+            JOptionPane.showMessageDialog(null, "You are already registered for this course!");
+        } else {
+            // Insert new registration
+            String insertQuery = "INSERT INTO courseregistration (username, Subject, ProfessorName, Email, Age) VALUES (?, ?, ?, ?, ?)";
+            java.sql.PreparedStatement insertStmt = connection.prepareStatement(insertQuery);
+            insertStmt.setString(1, username);
+            insertStmt.setString(2, subject);
+            insertStmt.setString(3, pname);
+            insertStmt.setString(4, email);
+            insertStmt.setInt(5, age);
+
+            insertStmt.execute();
+            JOptionPane.showMessageDialog(null, "Successfully Registered for the Course!");
         }
 
-        //JOptionPane.showMessageDialog(this,"New Employ details Added");
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+    }
 
-       // txtStudUsername.setText("");
-        subjectTxt.setSelectedItem("");
-        pnameTxt.setText("");
-        AgeTxt.setText("");
-        emailTxt.setText("");
+    // Clear fields after submission
+    subjectTxt.setSelectedItem("");
+    pnameTxt.setText("");
+    AgeTxt.setText("");
+    emailTxt.setText("");
     }//GEN-LAST:event_submitBtnActionPerformed
 String profUserame = "";
     private void profTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profTableMouseClicked
         // TODO add your handling code here:
         
-        DefaultTableModel profModel = (DefaultTableModel)profTable.getModel();
-        String profNameTxt = profTable.getValueAt(profTable.getSelectedRow(), 0).toString();
-        pnameTxt.setText(profTable.getValueAt(profTable.getSelectedRow(), 0).toString());
-        emailTxt.setText(profTable.getValueAt(profTable.getSelectedRow(), 1).toString());
-        AgeTxt.setText(profTable.getValueAt(profTable.getSelectedRow(), 2).toString());
+DefaultTableModel profModel = (DefaultTableModel)profTable.getModel();
+    String profNameTxt = profTable.getValueAt(profTable.getSelectedRow(), 0).toString();
+    pnameTxt.setText(profNameTxt);
+    emailTxt.setText(profTable.getValueAt(profTable.getSelectedRow(), 1).toString());
+    AgeTxt.setText(profTable.getValueAt(profTable.getSelectedRow(), 2).toString());
 
         try{
             java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
@@ -439,32 +471,29 @@ String profUserame = "";
     private void findBtbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findBtbnActionPerformed
         // TODO add your handling code here:
         
-         DefaultTableModel profModel = (DefaultTableModel)profTable.getModel();
-        profModel.setRowCount(0);
+DefaultTableModel profModel = (DefaultTableModel)profTable.getModel();
+    profModel.setRowCount(0); // Clear existing rows
 
-        String course = subjectTxt.getSelectedItem().toString();
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String profQuery = "SELECT * FROM universitysystem.professors WHERE subjectTeach = '"+course+"'";
+    String course = subjectTxt.getSelectedItem().toString();
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        java.sql.Statement statement = connection.createStatement();
 
-            java.sql.ResultSet profData = statement.executeQuery(profQuery);
+        // Query to fetch professors teaching the selected course
+        String profQuery = "SELECT name, email, age FROM professors WHERE subjectTeach = ?";
+        java.sql.PreparedStatement profStmt = connection.prepareStatement(profQuery);
+        profStmt.setString(1, course);
 
-            while(profData.next()){
-                String profName = profData.getString("username");
-
-                // String subject = profData.getString("SubjectTeach");
-                String email = profData.getString("Email");
-                int age = profData.getInt("Age");
-
-                Object tbData[] = {profName, email, age};
-
-                profModel.addRow(tbData);
-
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+        java.sql.ResultSet profData = profStmt.executeQuery();
+        while (profData.next()) {
+            Object tbData[] = {profData.getString("name"), profData.getString("email"), profData.getInt("age")};
+            profModel.addRow(tbData);
         }
+
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching professors: " + e.getMessage());
+    }
     }//GEN-LAST:event_findBtbnActionPerformed
 
     private void txtStudUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStudUsernameActionPerformed
@@ -506,36 +535,68 @@ String profUserame = "";
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tb1Model = (DefaultTableModel)resultsTable.getModel();
-        tb1Model.setRowCount(0);
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String studentQuery = "SELECT * FROM universitysystem.coursegrade WHERE studentname = '"+currStudentName+"'";
-            java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
+DefaultTableModel tb1Model = (DefaultTableModel) resultsTable.getModel();
+    tb1Model.setRowCount(0); // Clear the table to avoid duplicates
 
-            while(studentData.next()){
-                String  name = studentData.getString("studentname");
-                String subject = studentData.getString("subject");
-                String marks = studentData.getString("marks");
-                String remarks = studentData.getString("remarks");
+    try {
+        // Establish connection to database
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
 
-                String tbData[] = {name, subject,marks,remarks};
+        // Query to fetch the grades for the current student
+        String studentQuery = "SELECT DISTINCT studentname, subject, marks, remarks FROM coursegrade WHERE studentname = ?";
+        java.sql.PreparedStatement stmt = connection.prepareStatement(studentQuery);
+        stmt.setString(1, currStudentName);
 
-                tb1Model.addRow(tbData);
-            }
+        java.sql.ResultSet studentData = stmt.executeQuery();
 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+        while (studentData.next()) {
+            String name = studentData.getString("studentname");
+            String subject = studentData.getString("subject");
+            String marks = studentData.getString("marks");
+            String remarks = studentData.getString("remarks");
+
+            String tbData[] = {name, subject, marks, remarks};
+            tb1Model.addRow(tbData); // Add the row to the table model
         }
+
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching grades: " + e.getMessage());
+    }
     }//GEN-LAST:event_viewBtnActionPerformed
     String currStudentName = "";
     String currStudUsername = "";
-    public void setName(String studentName, String username){
-        txtStudUsername.setText(studentName);
-        currStudentName = studentName;
-        currStudUsername = username;
+     public void populateStudentInfo(String username) {
+    try {
+        // Establish connection to the database
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+
+        // Query to fetch student details
+        String query = "SELECT * FROM students WHERE username = ?";
+        java.sql.PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, username);
+
+        java.sql.ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            // Populate fields with student data
+            txtStudUsername.setText(rs.getString("username"));
+            subjectTxt.setSelectedItem(rs.getString("subjectTaken")); // Optional, if a default subject exists
+        }
+
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching student data: " + e.getMessage());
     }
+}
+
+public void setName(String studentName, String username){
+    txtStudUsername.setText(username); // Display username in the field
+    currStudentName = studentName;
+    currStudUsername = username;
+
+    populateStudentInfo(username); // Populate additional student data
+}
+
             
     /**
      * @param args the command line arguments

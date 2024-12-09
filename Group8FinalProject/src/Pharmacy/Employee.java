@@ -6,7 +6,7 @@ package Pharmacy;
 
 /**
  *
- * @author akshtalati
+ * @author varananavadiya
  */
 
 
@@ -239,25 +239,60 @@ public class Employee extends javax.swing.JFrame {
 
     int currentSelectedCount = 0;
     private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
-        // TODO add your handling code here:
-        String medName = lblMed.getText();
-        String medPrice = lblPrice.getText();
-        int medQuant = Integer.parseInt(lblQuant.getText());
-        String medComp = lblCompany.getText();
-        if(medQuant > currentSelectedCount){
-            JOptionPane.showMessageDialog(null,"Not enough Quantity");
-        }else{
-            try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-                java.sql.Statement statement = connection.createStatement();
-                statement.executeUpdate("UPDATE universitysystem.students SET medicineTaken = '"+medName+"', medicineQuant = medicineQuant + '"+medQuant+"' where username ='"+currStudUsername+"'");
-                statement.executeUpdate("UPDATE universitysystem.medicine SET QUANTITY = QUANTITY - '"+medQuant+"'");
-                JOptionPane.showMessageDialog(null,"Thank you for Purchase");
+    String medName = lblMed.getText();
+    String medPrice = lblPrice.getText();
+    int medQuant = Integer.parseInt(lblQuant.getText());
+    String medComp = lblCompany.getText();
+
+    if (medQuant > currentSelectedCount) {
+        JOptionPane.showMessageDialog(null, "Not enough Quantity");
+    } else {
+        try {
+            java.sql.Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/universitysystem", "root", "user1234"
+            );
+
+            // Check if the student already has medicines
+            String checkMedicineQuery = "SELECT medicineTaken FROM universitysystem.students WHERE username = ?";
+            java.sql.PreparedStatement checkStatement = connection.prepareStatement(checkMedicineQuery);
+            checkStatement.setString(1, currStudUsername);
+            java.sql.ResultSet rs = checkStatement.executeQuery();
+
+            String existingMedicines = null;
+            if (rs.next()) {
+                existingMedicines = rs.getString("medicineTaken");
             }
-            catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
+
+            // Update the student's medicineTaken and medicineQuant
+            String updateStudentQuery;
+            if (existingMedicines == null || existingMedicines.isEmpty()) {
+                updateStudentQuery = "UPDATE universitysystem.students " +
+                                    "SET medicineTaken = ?, medicineQuant = ? " +
+                                    "WHERE username = ?";
+            } else {
+                updateStudentQuery = "UPDATE universitysystem.students " +
+                                    "SET medicineTaken = CONCAT(medicineTaken, ', ', ?), medicineQuant = medicineQuant + ? " +
+                                    "WHERE username = ?";
             }
+            java.sql.PreparedStatement studentStatement = connection.prepareStatement(updateStudentQuery);
+            studentStatement.setString(1, medName);
+            studentStatement.setInt(2, medQuant);
+            studentStatement.setString(3, currStudUsername);
+            studentStatement.executeUpdate();
+
+            // Update the medicine stock
+            String updateMedicineQuery = "UPDATE universitysystem.medicine SET quantity = quantity - ? WHERE medicine_name = ?";
+            java.sql.PreparedStatement medicineStatement = connection.prepareStatement(updateMedicineQuery);
+            medicineStatement.setInt(1, medQuant);
+            medicineStatement.setString(2, medName);
+            medicineStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Thank you for your purchase!");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
+    }
     }//GEN-LAST:event_btnBuyActionPerformed
 
     private void tblMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMedicineMouseClicked
@@ -289,27 +324,39 @@ public class Employee extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel medModel = (DefaultTableModel)tblMedTaken.getModel();
-        medModel.setRowCount(0);
-        
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String getMedQuery = "SELECT * FROM universitysystem.students where username = '"+currStudUsername+"'";
-            java.sql.ResultSet medData = statement.executeQuery(getMedQuery);
-            
-            while(medData.next()){
-                String medName = medData.getString("medicineTaken");
-                String quantity = medData.getString("medicineQuant");
-                
-                String tbData[] = {medName,quantity};
-                
-                medModel.addRow(tbData);
+DefaultTableModel medModel = (DefaultTableModel) tblMedTaken.getModel();
+    medModel.setRowCount(0);
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/universitysystem", "root", "user1234"
+        );
+
+        // Fetch medicines taken by the student
+        String getMedQuery = "SELECT medicineTaken, medicineQuant FROM universitysystem.students WHERE username = ?";
+        java.sql.PreparedStatement statement = connection.prepareStatement(getMedQuery);
+        statement.setString(1, currStudUsername);
+        java.sql.ResultSet medData = statement.executeQuery();
+
+        while (medData.next()) {
+            String medName = medData.getString("medicineTaken");
+            String quantity = medData.getString("medicineQuant");
+
+            // Handle NULL values
+            if (medName == null) {
+                medName = "None";
             }
-            
-         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-         }
+            if (quantity == null) {
+                quantity = "0";
+            }
+
+            String tbData[] = {medName, quantity};
+            medModel.addRow(tbData);
+        }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

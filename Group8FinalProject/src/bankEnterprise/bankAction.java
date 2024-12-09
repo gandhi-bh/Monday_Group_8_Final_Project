@@ -5,11 +5,11 @@
 package bankEnterprise;
 
 import bankEnterprise.bank.Model.bankresponse;
+import emergencyEnterprise.crimeReport;
 //import emergencyEnterprise.crimeReport;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.DriverManager;
-
 
 /**
  *
@@ -18,7 +18,7 @@ import java.sql.DriverManager;
 public class bankAction extends javax.swing.JFrame {
 
     /**
-     * 
+     *
      */
     public bankAction() {
         initComponents();
@@ -79,10 +79,10 @@ public class bankAction extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Employee Action");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 91, 181, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 181, -1));
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
@@ -167,7 +167,7 @@ public class bankAction extends javax.swing.JFrame {
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(567, 270, -1, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)Northeastern-University-Logo-1922.png"))); // NOI18N
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N
@@ -236,10 +236,8 @@ public class bankAction extends javax.swing.JFrame {
         });
         jPanel1.add(viewDBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(647, 434, -1, -1));
 
-
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N
-
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
         jTabbedPane1.addTab("Status", jPanel1);
@@ -259,9 +257,7 @@ public class bankAction extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 153));
         jLabel10.setText("Report a crime to NUPD?");
-
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
-
 
         btnReportCrime1.setBackground(new java.awt.Color(0, 0, 0));
         btnReportCrime1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -272,18 +268,14 @@ public class bankAction extends javax.swing.JFrame {
                 btnReportCrime1ActionPerformed(evt);
             }
         });
-
         jPanel2.add(btnReportCrime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, -1, -1));
-
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel15.setText("End Current Session?");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
 
-
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N
-
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/accounting-watts-scaled.jpg"))); // NOI18N
@@ -307,13 +299,13 @@ public class bankAction extends javax.swing.JFrame {
 
     private void bankserviceTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bankserviceTableMouseClicked
         // TODO add your handling code here:
-        DefaultTableModel tb1Model = (DefaultTableModel)bankserviceTable.getModel();
+        DefaultTableModel tb1Model = (DefaultTableModel) bankserviceTable.getModel();
 
-        String tb1name = tb1Model.getValueAt(bankserviceTable.getSelectedRow(),0).toString();
+        String tb1name = tb1Model.getValueAt(bankserviceTable.getSelectedRow(), 0).toString();
 
-        String tb1account = tb1Model.getValueAt(bankserviceTable.getSelectedRow(),1).toString();
-        String tb1operation = tb1Model.getValueAt(bankserviceTable.getSelectedRow(),2).toString();
-        String tb1amount = tb1Model.getValueAt(bankserviceTable.getSelectedRow(),3).toString();
+        String tb1account = tb1Model.getValueAt(bankserviceTable.getSelectedRow(), 1).toString();
+        String tb1operation = tb1Model.getValueAt(bankserviceTable.getSelectedRow(), 2).toString();
+        String tb1amount = tb1Model.getValueAt(bankserviceTable.getSelectedRow(), 3).toString();
 
         nameTxt.setText(tb1name);
         accountTxt.setText(tb1account);
@@ -327,38 +319,38 @@ public class bankAction extends javax.swing.JFrame {
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tb1Model = (DefaultTableModel)bankserviceTable.getModel();
+        DefaultTableModel tb1Model = (DefaultTableModel) bankserviceTable.getModel();
         tb1Model.setRowCount(0);
-        try{
+        try {
             java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.bankservices";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
 
-            while(studentData.next()){
-                String  name = studentData.getString("Name");
+            while (studentData.next()) {
+                String name = studentData.getString("Name");
                 String accountType = studentData.getString("AccountType");
                 String operation = studentData.getString("Operation");
                 String amount = studentData.getString("Amount");
 
-                String tbData[] = {name, accountType,operation,amount};
+                String tbData[] = {name, accountType, operation, amount};
 
                 tb1Model.addRow(tbData);
             }
 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
         }
     }//GEN-LAST:event_viewBtnActionPerformed
 
-    
     String currEmpName = "";
     String currRole = "";
-    public void setRole(String role){
+
+    public void setRole(String role) {
         currRole = role;
     }
-    
-    public void setName(String studentName){
+
+    public void setName(String studentName) {
         employeeTxt.setText(studentName);
 //        lblUsername.setText("Welcome " + studentName);
         currEmpName = studentName;
@@ -366,22 +358,61 @@ public class bankAction extends javax.swing.JFrame {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
         String name = nameTxt.getText();
-
         String accountType = accountTxt.getText();
         String operation = operationTxt.getText();
-        int amount = Integer.parseInt(amountTxt.getText());
         String employee = employeeTxt.getText();
         String action = actionTakenTxt.getText();
+        double amount; // Use double for the amount
 
-        if(amountTxt.getText().isEmpty()|| nameTxt.getText().isEmpty()||actionTakenTxt.getText().isEmpty()||employeeTxt.getText().isEmpty()           ){
-            JOptionPane.showMessageDialog(null, "Plz Enter Details!");
+        // Validate inputs
+        if (name.isEmpty() || accountType.isEmpty() || operation.isEmpty() || employee.isEmpty() || action.isEmpty() || amountTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill all the required fields!");
+            return;
+        }
 
-        } else{
+        try {
+            // Parse the amount as double
+            amount = Double.parseDouble(amountTxt.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Invalid amount! Please enter a numeric value.");
+            return;
+        }
 
-            // Community.CreateCommunity(house,person,community,city,hospital);
-            // BankResponse.CreateBankResponse(name,accountType,operation,amount,employee,action);
-            bankresponse response =  new bankresponse(name,accountType,operation,amount,employee,action,currRole);
-            response.addResponse();
+        // Add to the database
+        try {
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+            String insertQuery = "INSERT INTO bankresponse (name, accountType, operation, amount, employee, actionTaken) VALUES (?, ?, ?, ?, ?, ?)";
+            java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
+
+            // Set parameters
+            statement.setString(1, name);
+            statement.setString(2, accountType);
+            statement.setString(3, operation);
+            statement.setDouble(4, amount);
+            statement.setString(5, employee);
+            statement.setString(6, action);
+
+            // Execute the query
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(null, "Response submitted successfully!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to submit the response. Please try again!");
+            }
+
+            // Close the connection
+            connection.close();
+
+            // Clear input fields
+            nameTxt.setText("");
+            accountTxt.setText("");
+            operationTxt.setText("");
+            amountTxt.setText("");
+            employeeTxt.setText("");
+            actionTakenTxt.setText("");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_submitBtnActionPerformed
 
@@ -391,74 +422,72 @@ public class bankAction extends javax.swing.JFrame {
 
     private void viewDBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDBtnActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tb1Model = (DefaultTableModel)policeTableD.getModel();
+        DefaultTableModel tb1Model = (DefaultTableModel) policeTableD.getModel();
         tb1Model.setRowCount(0);
-        try{
+        try {
             java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.police";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
 
-            while(studentData.next()){
-                String  name = studentData.getString("name");
+            while (studentData.next()) {
+                String name = studentData.getString("name");
                 String gender = studentData.getString("gender");
                 String phone = studentData.getString("phone");
                 String age = studentData.getString("age");
                 String salary = studentData.getString("salary");
                 String designation = studentData.getString("designation");
 
-                String tbData[] = {name, gender, phone,age,salary,designation};
+                String tbData[] = {name, gender, phone, age, salary, designation};
 
                 tb1Model.addRow(tbData);
             }
 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
         }
     }//GEN-LAST:event_viewDBtnActionPerformed
 
     private void viewDBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDBtn1ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel tb1Model = (DefaultTableModel)studentTable.getModel();
+        DefaultTableModel tb1Model = (DefaultTableModel) studentTable.getModel();
         tb1Model.setRowCount(0);
-        try{
+        try {
             java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
             java.sql.Statement statement = connection.createStatement();
             String studentQuery = "SELECT * FROM universitysystem.students";
             java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
 
-            while(studentData.next()){
-                String  name = studentData.getString("username");
+            while (studentData.next()) {
+                String name = studentData.getString("username");
                 String email = studentData.getString("Email");
 
                 String age = studentData.getString("Age");
                 String loanamount = studentData.getString("Loanamount");
 
+                String tbData[] = {name, email, age, loanamount};
 
-                
-                String tbData[] = {name,email,age,loanamount};
-                
                 tb1Model.addRow(tbData);
             }
-            
-         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
-         }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
+        }
     }//GEN-LAST:event_viewDBtn1ActionPerformed
 
     private void btnStudLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudLogoutActionPerformed
         // TODO add your handling code here:
-//        financialLogin emergencyLoginObj = new financialLogin();
-//        setVisible(false);
-//        emergencyLoginObj.setVisible(true);
+        financialLogin emergencyLoginObj = new financialLogin();
+        setVisible(false);
+        emergencyLoginObj.setVisible(true);
     }//GEN-LAST:event_btnStudLogoutActionPerformed
 
     private void btnReportCrime1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportCrime1ActionPerformed
-        // TODO add your handling code here:
-//        crimeReport cr = new crimeReport();
-//        cr.getUserData(currEmpName, "bankemployee");
-//        setVisible(false);
-//        cr.setVisible(true);
+        //TODO add your handling code here:
+        crimeReport cr = new crimeReport();
+        cr.getUserData(currEmpName, "bankemployee");
+        setVisible(false);
+        cr.setVisible(true);
     }//GEN-LAST:event_btnReportCrime1ActionPerformed
 
     /**

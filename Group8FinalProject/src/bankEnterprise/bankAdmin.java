@@ -5,6 +5,7 @@
 package bankEnterprise;
 
 import bankEnterprise.bank.Model.bankEmployee;
+import com.sun.jdi.connect.spi.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,11 +17,10 @@ import javax.swing.table.DefaultTableModel;
 public class bankAdmin extends javax.swing.JFrame {
 
     /**
-     * 
+     *
      */
     public bankAdmin() {
         initComponents();
-        
         
     }
 
@@ -92,6 +92,12 @@ public class bankAdmin extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Bank Employee");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 202, -1));
+
+        passwordTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordTxtActionPerformed(evt);
+            }
+        });
         jPanel1.add(passwordTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 167, 150, -1));
 
         employeeTable.setBackground(new java.awt.Color(0, 102, 102));
@@ -148,13 +154,13 @@ public class bankAdmin extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 0, 0));
         jLabel15.setText("Phone:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 213, -1, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
         jPanel1.add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 128, 150, -1));
 
         jLabel16.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(153, 0, 0));
         jLabel16.setText("Age:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 245, -1, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         viewBtn1.setBackground(new java.awt.Color(0, 0, 0));
         viewBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -197,138 +203,234 @@ public class bankAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 String EmployeeUsername = "";
     private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
-         DefaultTableModel profModel = (DefaultTableModel)employeeTable.getModel();
-        String EnameTxt = employeeTable.getValueAt(employeeTable.getSelectedRow(), 0).toString();
-        nameTxt.setText(employeeTable.getValueAt(employeeTable.getSelectedRow(), 0).toString());        
-        genderTxt.setSelectedItem(employeeTable.getValueAt(employeeTable.getSelectedRow(), 1).toString());
-        ageTxt.setText(employeeTable.getValueAt(employeeTable.getSelectedRow(), 2).toString());
-        phoneTxt.setText(employeeTable.getValueAt(employeeTable.getSelectedRow(), 3).toString());
 
 
+          int selectedRow = employeeTable.getSelectedRow();
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(null, "No row selected. Please select an employee!");
+        return;
+    }
 
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String profQuery = "SELECT * FROM universitysystem.bankemployee WHERE Name = '"+EnameTxt+"'";
-            java.sql.ResultSet profData = statement.executeQuery(profQuery);
-            while(profData.next()){
-                EmployeeUsername = profData.getString("username");
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-         }
+    // Populate fields with selected row data
+    nameTxt.setText(employeeTable.getValueAt(selectedRow, 0).toString());
+    genderTxt.setSelectedItem(employeeTable.getValueAt(selectedRow, 1).toString());
+    phoneTxt.setText(employeeTable.getValueAt(selectedRow, 2).toString());
+    ageTxt.setText(employeeTable.getValueAt(selectedRow, 3).toString());
+
+    // Fetch username and password from the database using the name
+    try {
+        String name = nameTxt.getText();
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String query = "SELECT username, password FROM bankemployee WHERE name = ?";
+        java.sql.PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, name);
+
+        java.sql.ResultSet rs = statement.executeQuery();
+        if (rs.next()) {
+            usernameTxt.setText(rs.getString("username"));
+            passwordTxt.setText(rs.getString("password"));
+        } else {
+            JOptionPane.showMessageDialog(null, "No additional details found for the selected employee!");
+        }
+
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching username and password: " + e.getMessage());
+    }
     }//GEN-LAST:event_employeeTableMouseClicked
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-       DefaultTableModel profModel = (DefaultTableModel)employeeTable.getModel();
+   String username = usernameTxt.getText();
 
-        String Name = nameTxt.getText();
-        String Gender = (String) genderTxt.getSelectedItem();
+    // Validate that a username is provided
+    if (username.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Username is required to update employee details!");
+        return;
+    }
 
-        int age = Integer.parseInt(ageTxt.getText());
-        int phone = Integer.parseInt(phoneTxt.getText());
+    // Get other field values
+    String name = nameTxt.getText();
+    String gender = (String) genderTxt.getSelectedItem();
+    String phone = phoneTxt.getText();
+    String ageStr = ageTxt.getText();
+    String password = passwordTxt.getText();
 
+    // Validate input fields
+    if (name.isEmpty() || gender == null || phone.isEmpty() || ageStr.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields!");
+        return;
+    }
 
-        if(EmployeeUsername.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Employee name is empty");
-        }else{
-            try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-                java.sql.Statement statement = connection.createStatement();
-            String profQuery = "UPDATE universitysystem.bankemployee SET Name = '"+Name+"', Gender = '"+Gender+"', Age = '"+age+"', Phone = '"+phone+"' WHERE username = '"+EmployeeUsername+"'";
-            statement.executeUpdate(profQuery);
-                JOptionPane.showMessageDialog(null,"Updated successfully");
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-            }
-}
-    }//GEN-LAST:event_updateBtnActionPerformed
+    try {
+        // Parse and validate age
+        int age = Integer.parseInt(ageStr);
 
-    
-    
-    
-    
-    
-    
-    
-    private void addTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTxtActionPerformed
-        // TODO add your handling code here:
+        // Update the database
+        java.sql.Connection connection = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/universitysystem", "root", "user1234"
+        );
+        String updateQuery = "UPDATE bankemployee SET name = ?, gender = ?, phone = ?, age = ?, password = ? WHERE username = ?";
+        java.sql.PreparedStatement statement = connection.prepareStatement(updateQuery);
+        statement.setString(1, name);
+        statement.setString(2, gender);
+        statement.setString(3, phone);
+        statement.setInt(4, age);
+        statement.setString(5, password);
+        statement.setString(6, username);
 
-        String name = nameTxt.getText();
-        String gender = (String) genderTxt.getSelectedItem();
-        int age = Integer.parseInt(ageTxt.getText());
-        int phone = Integer.parseInt(phoneTxt.getText());
-
-        String username = usernameTxt.getText();
-        String password = passwordTxt.getText();
-
-
-
-        if(usernameTxt.getText().isEmpty()|| nameTxt.getText().isEmpty()||ageTxt.getText().isEmpty()||passwordTxt.getText().isEmpty()           ){
-            JOptionPane.showMessageDialog(null, "Plz Enter Details!");
-
-        } else{
-
-            // Community.CreateCommunity(house,person,community,city,hospital);
-           // Bankemployee.CreateBankemployee(name,gender,age,phone,username,password);
-           bankEmployee employee =  new bankEmployee(name,gender,age,phone,username,password);
-               employee.addEmployee();
+        // Execute the update query
+        int rowsAffected = statement.executeUpdate();
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Employee updated successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "No matching employee found to update!");
         }
 
-        //JOptionPane.showMessageDialog(this,"New Employ details Added");
+        // Refresh the table and close the connection
+        refreshEmployeeTable();
+        connection.close();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Age must be a valid number!");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error updating employee: " + e.getMessage());
+    }
+    }//GEN-LAST:event_updateBtnActionPerformed
 
-        genderTxt.setSelectedItem("");
-        nameTxt.setText("");
-        ageTxt.setText("");
-        phoneTxt.setText("");
-        usernameTxt.setText("");
-        passwordTxt.setText("");
 
+    private void addTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTxtActionPerformed
+        // TODO add your handling code here:
+    String name = nameTxt.getText().trim();
+    String gender = (String) genderTxt.getSelectedItem();
+    String phone = phoneTxt.getText().trim();
+    String ageStr = ageTxt.getText().trim();
+    String username = usernameTxt.getText().trim();
+    String password = passwordTxt.getText().trim();
+
+    // Check if any field is empty
+    if (name.isEmpty() || gender == null || phone.isEmpty() || ageStr.isEmpty() || username.isEmpty() || password.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields!");
+        return;
+    }
+
+    try {
+        // Parse and validate the age field
+        int age = Integer.parseInt(ageStr);
+
+        // Establish a database connection
+        java.sql.Connection connection = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/universitysystem", "root", "user1234"
+        );
+
+        // Prepare the SQL query
+        String insertQuery = "INSERT INTO bankemployee (name, gender, phone, age, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+        java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
+
+        // Set query parameters
+        statement.setString(1, name);
+        statement.setString(2, gender);
+        statement.setString(3, phone);
+        statement.setInt(4, age);
+        statement.setString(5, username);
+        statement.setString(6, password);
+
+        // Execute the query
+        int rowsAffected = statement.executeUpdate();
+
+        // Check if the query was successful
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Employee added successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to add employee.");
+        }
+
+        // Refresh the employee table
+        refreshEmployeeTable();
+
+        // Close the connection
+        connection.close();
+
+    } catch (NumberFormatException e) {
+        // Handle invalid age input
+        JOptionPane.showMessageDialog(null, "Age must be a valid number!");
+    } catch (java.sql.SQLIntegrityConstraintViolationException e) {
+        // Handle unique constraint violations (e.g., username already exists)
+        JOptionPane.showMessageDialog(null, "Username already exists. Please choose a different username.");
+    } catch (Exception e) {
+        // Catch-all for other exceptions
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
 
         //employee_table();
     }//GEN-LAST:event_addTxtActionPerformed
 
     private void viewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtnActionPerformed
         // TODO add your handling code here:
-         DefaultTableModel tb1Model = (DefaultTableModel)employeeTable.getModel();
-        tb1Model.setRowCount(0);
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String studentQuery = "SELECT * FROM universitysystem.bankemployee";
-            java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
+        refreshEmployeeTable();
+    }
 
-            while(studentData.next()){
-                String  name = studentData.getString("Name");
-                String gender = studentData.getString("Gender");
-                String phone = studentData.getString("Phone");
-                String age = studentData.getString("Age");
+    private void refreshEmployeeTable() {
 
-                
-                String tbData[] = {name, gender, phone,age};
-                
-                tb1Model.addRow(tbData);
-            }
-            
-         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
-         }
+ DefaultTableModel tb1Model = (DefaultTableModel) employeeTable.getModel();
+    tb1Model.setRowCount(0);
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String fetchQuery = "SELECT name, gender, phone, age FROM bankemployee";
+        java.sql.Statement statement = connection.createStatement();
+        java.sql.ResultSet rs = statement.executeQuery(fetchQuery);
+
+        while (rs.next()) {
+            String name = rs.getString("name");
+            String gender = rs.getString("gender");
+            String phone = rs.getString("phone");
+            String age = rs.getString("age");
+
+            String[] rowData = {name, gender, phone, age};
+            tb1Model.addRow(rowData);
+        }
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error loading data: " + e.getMessage());
+    }
+
+
     }//GEN-LAST:event_viewBtnActionPerformed
 
+
     private void viewBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewBtn1ActionPerformed
-        // TODO add your handling code here:
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-                
-            statement.executeUpdate("DELETE FROM universitysystem.bankemployee WHERE username = '"+EmployeeUsername+"'");
-            JOptionPane.showMessageDialog(null, "Employee Deleted !");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+   String username = usernameTxt.getText();
+
+    // Validate that a username is provided
+    if (username.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Username is required to delete employee details!");
+        return;
+    }
+
+    try {
+        // Establish a database connection
+        java.sql.Connection connection = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/universitysystem", "root", "user1234"
+        );
+
+        // Prepare the delete query
+        String deleteQuery = "DELETE FROM bankemployee WHERE username = ?";
+        java.sql.PreparedStatement statement = connection.prepareStatement(deleteQuery);
+        statement.setString(1, username);
+
+        // Execute the delete query
+        int rowsAffected = statement.executeUpdate();
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Employee deleted successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "No matching employee found to delete!");
         }
-        nameTxt.setText("");
-        phoneTxt.setText("");
-        ageTxt.setText("");
+
+        // Refresh the table and close the connection
+        refreshEmployeeTable();
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error deleting employee: " + e.getMessage());
+    }
     }//GEN-LAST:event_viewBtn1ActionPerformed
 
     private void btnStudLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudLogoutActionPerformed
@@ -337,6 +439,10 @@ String EmployeeUsername = "";
         setVisible(false);
         emergencyLoginObj.setVisible(true);
     }//GEN-LAST:event_btnStudLogoutActionPerformed
+
+    private void passwordTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordTxtActionPerformed
 
 //    public void employee_table(){
 //        try{
@@ -371,10 +477,6 @@ String EmployeeUsername = "";
 //            JOptionPane.showMessageDialog(null,"please add data in correct format!");
 //    }                                 
 //    }
-    
-    
-    
-    
     /**
      * @param args the command line arguments
      */

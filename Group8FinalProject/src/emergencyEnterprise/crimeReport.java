@@ -114,7 +114,7 @@ public class crimeReport extends javax.swing.JFrame {
         });
         jPanel1.add(submitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 366, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Report Crime Here");
@@ -123,7 +123,7 @@ public class crimeReport extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDnobg.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
@@ -143,7 +143,7 @@ public class crimeReport extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(detailsTable);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 118, 652, 294));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 652, 294));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,9 +157,9 @@ public class crimeReport extends javax.swing.JFrame {
                 viewBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 430, -1, -1));
+        jPanel2.add(viewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane1.addTab("Crime Details", jPanel2);
@@ -174,16 +174,17 @@ public class crimeReport extends javax.swing.JFrame {
                 btnStudLogout1ActionPerformed(evt);
             }
         });
-        jPanel3.add(btnStudLogout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 316, -1, -1));
+        jPanel3.add(btnStudLogout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("End Current Session?");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPD-login logo.png"))); // NOI18N
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, 180));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 500));
 
         jTabbedPane1.addTab("Action", jPanel3);

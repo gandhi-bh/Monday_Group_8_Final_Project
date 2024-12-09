@@ -83,9 +83,9 @@ public class bankServices extends javax.swing.JFrame {
         jLabel2.setText("Username:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel1.setText("Welcome Users");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
 
         operationTxt.setForeground(new java.awt.Color(255, 255, 255));
         operationTxt.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Request Loan", " " }));

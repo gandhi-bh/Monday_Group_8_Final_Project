@@ -85,7 +85,7 @@ public class staffAdmin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Add Students");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
@@ -98,15 +98,15 @@ public class staffAdmin extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Password:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 155, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Username:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 114, -1, -1));
-        jPanel2.add(txtStudName, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 112, 100, -1));
-        jPanel2.add(txtStudPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 152, 100, -1));
-        jPanel2.add(txtStudUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 111, 100, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+        jPanel2.add(txtStudName, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 112, 200, -1));
+        jPanel2.add(txtStudPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 180, -1));
+        jPanel2.add(txtStudUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 180, -1));
 
         tblStud.setBackground(new java.awt.Color(153, 0, 0));
         tblStud.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,8 +163,8 @@ public class staffAdmin extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Email:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 156, -1, -1));
-        jPanel2.add(txtStudMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 153, 100, -1));
-        jPanel2.add(txtStudAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 194, 100, -1));
+        jPanel2.add(txtStudMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 153, 200, -1));
+        jPanel2.add(txtStudAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 194, 200, -1));
 
         btnStudView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnStudView.setText("View");
@@ -183,7 +183,7 @@ public class staffAdmin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Add Professor");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 39, 170, -1));
@@ -207,8 +207,14 @@ public class staffAdmin extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Username:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 124, -1, -1));
-        jPanel1.add(txtProfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 165, 139, -1));
-        jPanel1.add(txtProfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 121, 178, -1));
+        jPanel1.add(txtProfPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 165, 160, -1));
+
+        txtProfName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProfNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtProfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 121, 250, -1));
 
         jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jButton2.setText("Update");
@@ -245,7 +251,7 @@ public class staffAdmin extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "Subject Teaching", "Age", "Email"
+                "Name", "Subject Teaching", "Email", "Age"
             }
         ));
         tblProf.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,14 +272,20 @@ public class staffAdmin extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Email:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 209, -1, -1));
-        jPanel1.add(txtProfMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 206, 178, -1));
+
+        txtProfMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProfMailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtProfMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 206, 250, -1));
 
         txtProfAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtProfAgeActionPerformed(evt);
             }
         });
-        jPanel1.add(txtProfAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 247, 53, -1));
+        jPanel1.add(txtProfAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 247, 100, -1));
 
         btnProfView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnProfView.setText("View");
@@ -286,7 +298,7 @@ public class staffAdmin extends javax.swing.JFrame {
 
         txtSubTeach.setForeground(new java.awt.Color(255, 255, 255));
         txtSubTeach.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Web Design", "AED", "DMDD", "PSA" }));
-        jPanel1.add(txtSubTeach, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 165, -1, -1));
+        jPanel1.add(txtSubTeach, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 165, 150, -1));
 
         jLabellogostafadmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Northeastern_University_Logo-White.png"))); // NOI18N
         jPanel1.add(jLabellogostafadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 6, 120, -1));
@@ -309,6 +321,7 @@ public class staffAdmin extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Want to end the current session?");
 
         jLabelLogoActionpage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo_Northeastern-University-300x222.png"))); // NOI18N
@@ -364,91 +377,144 @@ public class staffAdmin extends javax.swing.JFrame {
 
     public class Students{
         public static void createStudents(String name, String subjectTaken, String email, int age, String studUsername, String studPassword){
-            try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-                java.sql.Statement statement = connection.createStatement();
-                
-                statement.executeUpdate("insert into universitysystem.students" + "(Name, SubjectTaken, Email, Age, username, password)" + "values ('"+name+"','"+subjectTaken+"', '"+email+"', '"+age+"', '"+studUsername+"', '"+studPassword+"')");
-                JOptionPane.showMessageDialog(null, "Student successfully added!");
-            }catch(Exception e){
-                 System.out.println(e);
-                 JOptionPane.showMessageDialog(null,"please add data in correct format!");
-            }
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String query = "INSERT INTO students (Name, SubjectTaken, Email, Age, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(query);
+        
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, subjectTaken);
+        preparedStatement.setString(3, email);
+        preparedStatement.setInt(4, age);
+        preparedStatement.setString(5, studUsername);
+        preparedStatement.setString(6, studPassword);
+        
+        int result = preparedStatement.executeUpdate();
+        if (result > 0) {
+            JOptionPane.showMessageDialog(null, "Student successfully added!");
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error adding student: " + e.getMessage());
+    }
         }
     }
     
     private void addStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentsActionPerformed
-        // TODO add your handling code here:
-        String name = txtStudName.getText();
-        String subjectTaken = "xyz";
-        String email = txtStudMail.getText();
-        int age = Integer.parseInt(txtStudAge.getText());
-        String studUsername = txtStudUsername.getText();
-        String studPassword = txtStudPassword.getText();
-        
-        if(name.isEmpty()|| subjectTaken.isEmpty()|| email.isEmpty()||studUsername.isEmpty() || age == 0 || studPassword.isEmpty()){
-                 JOptionPane.showMessageDialog(null, "Plz Enter Details!");
-        }else{
-            Students.createStudents(name, subjectTaken, email, age, studUsername, studPassword);
+ // TODO add your handling code here:
+    String name = txtStudName.getText();
+    String subjectTaken = ""; // Leave blank
+    String email = txtStudMail.getText();
+    String studUsername = txtStudUsername.getText();
+    String studPassword = txtStudPassword.getText();
+    int age = 0;
+
+    // Validate inputs
+    if (name.isEmpty() || email.isEmpty() || studUsername.isEmpty() || studPassword.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter all required details!");
+        return;
+    }
+
+    try {
+        age = Integer.parseInt(txtStudAge.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Please enter a valid age!");
+        return;
+    }
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String query = "INSERT INTO students (Name, SubjectTaken, Email, Age, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, subjectTaken); // Blank is allowed
+        preparedStatement.setString(3, email);
+        preparedStatement.setInt(4, age);
+        preparedStatement.setString(5, studUsername);
+        preparedStatement.setString(6, studPassword);
+
+        int result = preparedStatement.executeUpdate();
+        if (result > 0) {
+            JOptionPane.showMessageDialog(null, "Student added successfully!");
+            clearTextFields();
+            refreshStudentTable(); // Refresh table
         }
-        
-        txtStudName.setText("");
-        txtStudMail.setText("");
-        txtStudAge.setText("");
-        txtStudUsername.setText("");
-        txtStudPassword.setText("");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error adding student: " + e.getMessage());
+    }
     }//GEN-LAST:event_addStudentsActionPerformed
 
     private void btnStudViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudViewActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel studModel = (DefaultTableModel)tblStud.getModel();
-        studModel.setRowCount(0);
-        
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String studentQuery = "SELECT * FROM universitysystem.students";
-            java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
+ DefaultTableModel studModel = (DefaultTableModel) tblStud.getModel();
+    studModel.setRowCount(0);
 
-            while(studentData.next()){
-                String studName = studentData.getString("Name");
-                String subject = studentData.getString("SubjectTaken");
-                String email = studentData.getString("Email");
-                String age = studentData.getString("Age");
-                
-                String tbData[] = {studName,subject, email, age};
-                
-                studModel.addRow(tbData);
-            }
-            
-         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-         }
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String studentQuery = "SELECT * FROM students";
+        java.sql.Statement statement = connection.createStatement();
+        java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
+
+        while (studentData.next()) {
+            String studName = studentData.getString("Name");
+            String subject = studentData.getString("SubjectTaken");
+            String email = studentData.getString("Email");
+            String age = studentData.getString("Age");
+            String username = studentData.getString("username");
+
+            String tbData[] = {studName, subject, email, age, username};
+            studModel.addRow(tbData);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching students: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnStudViewActionPerformed
 
     private void btnUpdateStudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStudActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel studModel = (DefaultTableModel)tblStud.getModel();
-        studModel.setRowCount(0);
-        
-        String studName = txtStudName.getText();
-        String subjectTaken = "xyz";
-        String studMail = txtStudMail.getText();
-        int age = Integer.parseInt(txtStudAge.getText());
-        
-        if(studUsername.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Student name is empty");
-        }else{
-            try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-                java.sql.Statement statement = connection.createStatement();
-                String profQuery = "UPDATE universitysystem.students SET Name = '"+studName+"', subjectTaken = '"+subjectTaken+"', Email = '"+studMail+"', Age = '"+age+"' WHERE username = '"+studUsername+"'";
-                statement.executeUpdate(profQuery);
-                JOptionPane.showMessageDialog(null,"Updated successfully");
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-            }
+        // TODO add your handling code here:String studName = txtStudName.getText();
+String studName = txtStudName.getText();
+    String subjectTaken = ""; // Replace with a dynamic input if needed
+    String studMail = txtStudMail.getText();
+    String studUsername = txtStudUsername.getText();
+    String studPassword = txtStudPassword.getText();
+    int age;
+
+    // Validate age input
+    try {
+        age = Integer.parseInt(txtStudAge.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Age must be a valid number!");
+        return;
+    }
+
+    if (studUsername.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Select a student to update!");
+        return;
+    }
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String updateQuery = "UPDATE students SET Name = ?, SubjectTaken = ?, Email = ?, Age = ?, password = ? WHERE username = ?";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+
+        preparedStatement.setString(1, studName);
+        preparedStatement.setString(2, subjectTaken);
+        preparedStatement.setString(3, studMail);
+        preparedStatement.setInt(4, age);
+        preparedStatement.setString(5, studPassword);
+        preparedStatement.setString(6, studUsername);
+
+        int result = preparedStatement.executeUpdate();
+        if (result > 0) {
+            JOptionPane.showMessageDialog(null, "Student updated successfully!");
         }
+                    refreshStudentTable();
+    } 
+    catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error updating student: " + e.getMessage());
+    }
+        
 //        if(profModel.getRowCount() == 1){
 //            String name = txtProfName.getText();
 //            System.out.println(name);
@@ -458,41 +524,104 @@ public class staffAdmin extends javax.swing.JFrame {
     String studUsername = "";
     private void tblStudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStudMouseClicked
         // TODO add your handling code here:
-        DefaultTableModel studModel = (DefaultTableModel)tblStud.getModel();
-        String studNameTxt = tblStud.getValueAt(tblStud.getSelectedRow(), 0).toString();
-        txtStudName.setText(tblStud.getValueAt(tblStud.getSelectedRow(), 0).toString());        
-        txtStudMail.setText(tblStud.getValueAt(tblStud.getSelectedRow(), 2).toString());
-        txtStudAge.setText(tblStud.getValueAt(tblStud.getSelectedRow(), 3).toString());
-        
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String studQuery = "SELECT * FROM universitysystem.students WHERE Name = '"+studNameTxt+"'";
-            java.sql.ResultSet studData = statement.executeQuery(studQuery);
-            while(studData.next()){
-                studUsername = studData.getString("username");
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+    DefaultTableModel studModel = (DefaultTableModel) tblStud.getModel();
+    int selectedRow = tblStud.getSelectedRow();
+    
+    // Populate text fields with data from the selected row
+    txtStudName.setText(studModel.getValueAt(selectedRow, 0).toString());
+    txtStudMail.setText(studModel.getValueAt(selectedRow, 2).toString());
+    txtStudAge.setText(studModel.getValueAt(selectedRow, 3).toString());
+    
+    // Fetch username and password from the database
+    String selectedName = studModel.getValueAt(selectedRow, 0).toString(); // Assumes Name is unique
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String query = "SELECT username, password FROM students WHERE Name = ?";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, selectedName);
+        java.sql.ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            txtStudUsername.setText(resultSet.getString("username"));
+            txtStudPassword.setText(resultSet.getString("password"));
         }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching student details: " + e.getMessage());
+    }
     }//GEN-LAST:event_tblStudMouseClicked
 
     private void btnStudDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudDeleteActionPerformed
         // TODO add your handling code here:
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-                
-            statement.executeUpdate("DELETE FROM universitysystem.students WHERE username = '"+studUsername+"'");
-            JOptionPane.showMessageDialog(null, "Student Deleted added!");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+ if (txtStudUsername.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please select a student to delete!");
+        return;
+    }
+
+    String studUsername = txtStudUsername.getText();
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+
+        // Step 1: Delete dependent rows in courseregistration
+        String deleteCourseRegistrationQuery = "DELETE FROM courseregistration WHERE username = ?";
+        java.sql.PreparedStatement deleteCourseRegStmt = connection.prepareStatement(deleteCourseRegistrationQuery);
+        deleteCourseRegStmt.setString(1, studUsername);
+        deleteCourseRegStmt.executeUpdate();
+
+        // Step 2: Delete the student
+        String deleteStudentQuery = "DELETE FROM students WHERE username = ?";
+        java.sql.PreparedStatement deleteStudentStmt = connection.prepareStatement(deleteStudentQuery);
+        deleteStudentStmt.setString(1, studUsername);
+
+        int result = deleteStudentStmt.executeUpdate();
+        if (result > 0) {
+            JOptionPane.showMessageDialog(null, "Student deleted successfully!");
+            clearTextFields();
+            refreshStudentTable(); // Refresh table
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: Student not found or could not be deleted!");
         }
-        
-        txtProfName.setText("");
-        txtProfMail.setText("");
-        txtProfAge.setText("");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error deleting student: " + e.getMessage());
+    }
+}
+
+
+// Helper method to clear text fields
+private void clearTextFields() {
+    txtStudName.setText("");
+    txtStudMail.setText("");
+    txtStudAge.setText("");
+    txtStudUsername.setText("");
+    txtStudPassword.setText("");
+
+
     }//GEN-LAST:event_btnStudDeleteActionPerformed
+
+
+private void refreshStudentTable() {
+    DefaultTableModel studModel = (DefaultTableModel) tblStud.getModel();
+    studModel.setRowCount(0);
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String studentQuery = "SELECT * FROM students";
+        java.sql.Statement statement = connection.createStatement();
+        java.sql.ResultSet studentData = statement.executeQuery(studentQuery);
+
+        while (studentData.next()) {
+            String studName = studentData.getString("Name");
+            String subject = studentData.getString("SubjectTaken");
+            String email = studentData.getString("Email");
+            String age = studentData.getString("Age");
+            String username = studentData.getString("username");
+
+            String tbData[] = {studName, subject, email, age, username};
+            studModel.addRow(tbData);
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching students: " + e.getMessage());
+    }
+}
 
     private void btnUniAdminLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUniAdminLogoutActionPerformed
         // TODO add your handling code here:
@@ -503,124 +632,208 @@ public class staffAdmin extends javax.swing.JFrame {
 
     private void btnProfViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfViewActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel profModel = (DefaultTableModel)tblProf.getModel();
-        profModel.setRowCount(0);
+DefaultTableModel profModel = (DefaultTableModel) tblProf.getModel();
+    profModel.setRowCount(0);
 
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String profQuery = "SELECT * FROM universitysystem.professors";
-            java.sql.ResultSet profData = statement.executeQuery(profQuery);
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String profQuery = "SELECT * FROM professors";
+        java.sql.Statement statement = connection.createStatement();
+        java.sql.ResultSet profData = statement.executeQuery(profQuery);
 
-            while(profData.next()){
-                String profName = profData.getString("Name");
-                String subject = profData.getString("SubjectTeach");
-                String email = profData.getString("Email");
-                int age = profData.getInt("Age");
+        while (profData.next()) {
+            // Ensure the order matches your table column order: Name, Subject, Age, Email
+            String profName = profData.getString("Name");
+            String subject = profData.getString("SubjectTeach");
+            String email = profData.getString("Email");  // Fetch Email first
+            String age = profData.getString("Age");      // Fetch Age last
 
-                Object tbData[] = {profName,subject, email, age};
-
-                profModel.addRow(tbData);
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
+            // Add data in the correct order
+            Object[] tbData = {profName, subject, email,age,};
+            profModel.addRow(tbData);
         }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching professors: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnProfViewActionPerformed
 
     private void tblProfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProfMouseClicked
         // TODO add your handling code here:
-        DefaultTableModel profModel = (DefaultTableModel)tblProf.getModel();
-        String profNameTxt = tblProf.getValueAt(tblProf.getSelectedRow(), 0).toString();
-        txtProfName.setText(tblProf.getValueAt(tblProf.getSelectedRow(), 0).toString());
-        txtSubTeach.setSelectedItem(tblProf.getValueAt(tblProf.getSelectedRow(), 1));
-        txtProfMail.setText(tblProf.getValueAt(tblProf.getSelectedRow(), 2).toString());
-        txtProfAge.setText(tblProf.getValueAt(tblProf.getSelectedRow(), 3).toString());
+DefaultTableModel profModel = (DefaultTableModel) tblProf.getModel();
+    int selectedRow = tblProf.getSelectedRow();
 
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
-            String profQuery = "SELECT * FROM universitysystem.professors WHERE Name = '"+profNameTxt+"'";
-            java.sql.ResultSet profData = statement.executeQuery(profQuery);
-            while(profData.next()){
-                profUserame = profData.getString("username");
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+txtProfName.setText(profModel.getValueAt(selectedRow, 0).toString());
+txtSubTeach.setSelectedItem(profModel.getValueAt(selectedRow, 1).toString());
+txtProfMail.setText(profModel.getValueAt(selectedRow, 2).toString());
+txtProfAge.setText(profModel.getValueAt(selectedRow, 3).toString());
+
+
+    // Fetch username and password
+    String selectedProfName = profModel.getValueAt(selectedRow, 0).toString(); // Assumes Name is unique
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String query = "SELECT username, password FROM professors WHERE Name = ?";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, selectedProfName);
+        java.sql.ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            txtProfUsername.setText(resultSet.getString("username"));
+            txtProfPassword.setText(resultSet.getString("password"));
         }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error fetching professor details: " + e.getMessage());
+    }
     }//GEN-LAST:event_tblProfMouseClicked
 
     private void btnAddProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProfActionPerformed
         // TODO add your handling code here:
-        String profname = txtProfName.getText();
-        String subjectTeach = txtSubTeach.getSelectedItem().toString();
-        String profEmail = txtProfMail.getText();
-        int profAge = Integer.parseInt(txtProfAge.getText());
-        String profUsername = txtProfUsername.getText();
-        String profPassword = txtProfPassword.getText();
+String profName = txtProfName.getText();
+    String subjectTeach = txtSubTeach.getSelectedItem().toString();
+    String profEmail = txtProfMail.getText();
+    String profUsername = txtProfUsername.getText();
+    String profPassword = txtProfPassword.getText();
+    int age = 0;
 
-        if(profname.isEmpty()|| subjectTeach.isEmpty()|| profEmail.isEmpty()|| profAge == 0 || profUsername.isEmpty() || profPassword.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Plz Enter Details!");
-        }else{
-            Professor professor = new Professor(profname, subjectTeach, profEmail, profAge, profUsername, profPassword);
-            professor.addProfessor();
+    // Validate inputs
+    if (profName.isEmpty() || subjectTeach.isEmpty() || profEmail.isEmpty() || profUsername.isEmpty() || profPassword.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter all required details!");
+        return;
+    }
 
+    try {
+        age = Integer.parseInt(txtProfAge.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Please enter a valid age!");
+        return;
+    }
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String query = "INSERT INTO professors (Name, SubjectTeach, Email, Age, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+        preparedStatement.setString(1, profName);
+        preparedStatement.setString(2, subjectTeach);
+        preparedStatement.setString(3, profEmail);
+        preparedStatement.setInt(4, age);
+        preparedStatement.setString(5, profUsername);
+        preparedStatement.setString(6, profPassword);
+
+        int result = preparedStatement.executeUpdate();
+        if (result > 0) {
+            JOptionPane.showMessageDialog(null, "Professor added successfully!");
+            clearProfessorFields();
+            btnProfViewActionPerformed(null); // Refresh table
         }
-
-        txtProfName.setText("");
-        //        txtSubTeach.setText("");
-        txtProfMail.setText("");
-        txtProfAge.setText("");
-        txtProfUsername.setText("");
-        txtProfPassword.setText("");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error adding professor: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnAddProfActionPerformed
 
     private void btnProfDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfDeleteActionPerformed
         // TODO add your handling code here:
-        try{
-            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            java.sql.Statement statement = connection.createStatement();
+  if (txtProfUsername.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please select a professor to delete!");
+        return;
+    }
 
-            statement.executeUpdate("DELETE FROM universitysystem.professors WHERE username = '"+profUserame+"'");
-            JOptionPane.showMessageDialog(null, "Professors Deleted added!");
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
+    String profUsername = txtProfUsername.getText();
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+
+        // Step 1: Get professor name from username
+        String fetchNameQuery = "SELECT name FROM professors WHERE username = ?";
+        java.sql.PreparedStatement fetchNameStmt = connection.prepareStatement(fetchNameQuery);
+        fetchNameStmt.setString(1, profUsername);
+        java.sql.ResultSet rs = fetchNameStmt.executeQuery();
+
+        if (rs.next()) {
+            String profName = rs.getString("name");
+
+            // Step 2: Delete from courseregistration
+            String deleteFromCoursesQuery = "DELETE FROM courseregistration WHERE ProfessorName = ?";
+            java.sql.PreparedStatement deleteCoursesStmt = connection.prepareStatement(deleteFromCoursesQuery);
+            deleteCoursesStmt.setString(1, profName);
+            deleteCoursesStmt.executeUpdate();
+
+            // Step 3: Delete from professors
+            String deleteFromProfessorsQuery = "DELETE FROM professors WHERE username = ?";
+            java.sql.PreparedStatement deleteProfessorStmt = connection.prepareStatement(deleteFromProfessorsQuery);
+            deleteProfessorStmt.setString(1, profUsername);
+            int result = deleteProfessorStmt.executeUpdate();
+
+            if (result > 0) {
+                JOptionPane.showMessageDialog(null, "Professor deleted successfully!");
+                clearProfessorFields();
+                btnProfViewActionPerformed(null); // Refresh table
+            } else {
+                JOptionPane.showMessageDialog(null, "Error: Professor could not be deleted!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Error: Professor not found!");
         }
 
-        txtProfName.setText("");
-        txtProfMail.setText("");
-        txtProfAge.setText("");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error deleting professor: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnProfDeleteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel profModel = (DefaultTableModel)tblProf.getModel();
-        String profName = txtProfName.getText();
-        String subjectTeach = txtSubTeach.getSelectedItem().toString();
-        String profMail = txtProfMail.getText();
-        int age = Integer.parseInt(txtProfAge.getText());
+String profName = txtProfName.getText();
+    String subjectTeach = txtSubTeach.getSelectedItem().toString();
+    String profEmail = txtProfMail.getText();
+    String profUsername = txtProfUsername.getText();
+    String profPassword = txtProfPassword.getText();
+    int age = 0;
 
-        if(profUserame.isEmpty()){
-            JOptionPane.showMessageDialog(null,"Professor name is empty");
-        }else{
-            try{
-                java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-                java.sql.Statement statement = connection.createStatement();
-                String profQuery = "UPDATE universitysystem.professors SET Name = '"+profName+"', subjectTeach = '"+subjectTeach+"', Email = '"+profMail+"', Age = '"+age+"' WHERE username = '"+profUserame+"'";
-                statement.executeUpdate(profQuery);
-                JOptionPane.showMessageDialog(null,"Updated successfully");
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-            }
+    // Validate inputs
+    try {
+        age = Integer.parseInt(txtProfAge.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Age must be a valid number!");
+        return;
+    }
+
+    if (profUsername.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Select a professor to update!");
+        return;
+    }
+
+    try {
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+        String updateQuery = "UPDATE professors SET Name = ?, SubjectTeach = ?, Email = ?, Age = ?, password = ? WHERE username = ?";
+        java.sql.PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+
+        preparedStatement.setString(1, profName);
+        preparedStatement.setString(2, subjectTeach);
+        preparedStatement.setString(3, profEmail);
+        preparedStatement.setInt(4, age);
+        preparedStatement.setString(5, profPassword);
+        preparedStatement.setString(6, profUsername);
+
+        int result = preparedStatement.executeUpdate();
+        if (result > 0) {
+            JOptionPane.showMessageDialog(null, "Professor updated successfully!");
+            btnProfViewActionPerformed(null); // Refresh table
         }
-
-        txtProfName.setText("");
-        txtProfMail.setText("");
-        txtProfAge.setText("");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error updating professor: " + e.getMessage());
+    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtProfAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfAgeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProfAgeActionPerformed
+
+    private void txtProfMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfMailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProfMailActionPerformed
+
+    private void txtProfNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProfNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProfNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -656,6 +869,14 @@ public class staffAdmin extends javax.swing.JFrame {
             }
         });
     }
+    private void clearProfessorFields() {
+    txtProfName.setText("");
+    txtSubTeach.setSelectedIndex(0);
+    txtProfMail.setText("");
+    txtProfAge.setText("");
+    txtProfUsername.setText("");
+    txtProfPassword.setText("");
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStudents;

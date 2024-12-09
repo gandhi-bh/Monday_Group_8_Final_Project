@@ -6,7 +6,7 @@ package Pharmacy;
 
 /**
  *
- * @author akshtalati
+ * @author varananavadiya
  */
 
 import Pharmacy.model.MedicineModel;
@@ -29,33 +29,50 @@ public class Medicines extends javax.swing.JFrame {
      */
     public Medicines() {
         initComponents();
-        try{
+        fetchMedicines(); // Load existing medicines into the table
+        tfID.setEditable(false); // Make ID field non-editable
+
+    }
+    private void fetchMedicines() {
+        DefaultTableModel tb1Model = (DefaultTableModel) tableMedicine.getModel();
+        tb1Model.setRowCount(0); // Clear existing data
+
+        try {
             java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
-            System.out.println("connection open");
             java.sql.Statement statement = connection.createStatement();
             String sql = "SELECT * FROM universitysystem.medicine";
             java.sql.ResultSet rs = statement.executeQuery(sql);
-            while(rs.next()){
+
+            while (rs.next()) {
                 String id = Integer.toString(rs.getInt("ID"));
                 String medicine = rs.getString("MEDICINE_NAME");
                 String price = rs.getString("PRICE");
                 String quantity = rs.getString("QUANTITY");
                 String company = rs.getString("COMPANY");
-                
-                String tbData[] = {id,medicine,price,quantity,company};
-                DefaultTableModel tb1Model = (DefaultTableModel)tableMedicine.getModel();
-                
-                 tb1Model.addRow(tbData);
-                
+
+                String tbData[] = {id, medicine, price, quantity, company};
+                tb1Model.addRow(tbData);
             }
-
-
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getLocalizedMessage());
-
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error fetching medicines: " + e.getMessage());
         }
     }
+    private int getNextMedicineId() {
+        int nextId = 1;
+        try {
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+            java.sql.Statement statement = connection.createStatement();
+            String sql = "SELECT MAX(ID) AS maxId FROM universitysystem.medicine";
+            java.sql.ResultSet rs = statement.executeQuery(sql);
+            if (rs.next() && rs.getInt("maxId") > 0) {
+                nextId = rs.getInt("maxId") + 1;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error fetching next ID: " + e.getMessage());
+        }
+        return nextId;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -266,52 +283,79 @@ public class Medicines extends javax.swing.JFrame {
     private void buttonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUpdateActionPerformed
         // TODO add your handling code here:
         
-        DefaultTableModel tb1Model = (DefaultTableModel)tableMedicine.getModel();
-        if(tableMedicine.getSelectedRowCount()==1){
-            
-        int id =Integer.parseInt(tfID.getText());
+ int selectedRow = tableMedicine.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a medicine to update!");
+            return;
+        }
+
+        String id = tfID.getText();
         String medicine = tfMedicine.getText();
         String price = tfPrice.getText();
         String quantity = tfQuantity.getText();
-        String production = "";
-        String expiry = "";
-        String company = (String) cbCompany.getSelectedItem().toString();
-        
-        MedicineModel medicines = new MedicineModel(id, medicine, price, quantity, company);
-        medicines.updateMedicines();  
-        
-        tb1Model.setValueAt(medicine,tableMedicine.getSelectedRow(), 1);
-        tb1Model.setValueAt(price,tableMedicine.getSelectedRow(), 2);
-        tb1Model.setValueAt(quantity,tableMedicine.getSelectedRow(), 3); 
-        tb1Model.setValueAt(production,tableMedicine.getSelectedRow(), 4); 
-        tb1Model.setValueAt(expiry,tableMedicine.getSelectedRow(), 5); 
-        tb1Model.setValueAt(company,tableMedicine.getSelectedRow(), 6); 
-  
+        String company = cbCompany.getSelectedItem().toString();
+
+        if (medicine.isEmpty() || price.isEmpty() || quantity.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill all fields!");
+            return;
         }
-        else{
-            if(tableMedicine.getRowCount()==0){
-               JOptionPane.showMessageDialog(this, "Table is Empty"); 
+
+        try {
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+            String updateQuery = "UPDATE universitysystem.medicine SET MEDICINE_NAME = ?, PRICE = ?, QUANTITY = ?, COMPANY = ? WHERE ID = ?";
+            java.sql.PreparedStatement statement = connection.prepareStatement(updateQuery);
+
+            statement.setString(1, medicine);
+            statement.setString(2, price);
+            statement.setString(3, quantity);
+            statement.setString(4, company);
+            statement.setInt(5, Integer.parseInt(id));
+
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(null, "Medicine updated successfully!");
+                fetchMedicines();
+                clearFields();
             }
-            else{
-                JOptionPane.showMessageDialog(this, "Select a Row");
-            } 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error updating medicine: " + e.getMessage());
         }
+
     }//GEN-LAST:event_buttonUpdateActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         // TODO add your handling code here:
 
-        int id = Integer.parseInt(tfID.getText());
         String medicine = tfMedicine.getText();
         String price = tfPrice.getText();
         String quantity = tfQuantity.getText();
-        String company = (String) cbCompany.getSelectedItem().toString();
-        if(medicine.isEmpty()||quantity.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please Enter Details!");
+        String company = cbCompany.getSelectedItem().toString();
+
+        if (medicine.isEmpty() || price.isEmpty() || quantity.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please fill all fields!");
+            return;
         }
-        else{
-            MedicineModel medicines = new MedicineModel(id, medicine, price, quantity, company);
-            medicines.insertMedicines();
+
+        try {
+            int id = getNextMedicineId();
+            java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
+            String insertQuery = "INSERT INTO universitysystem.medicine (ID, MEDICINE_NAME, PRICE, QUANTITY, COMPANY) VALUES (?, ?, ?, ?, ?)";
+            java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
+
+            statement.setInt(1, id);
+            statement.setString(2, medicine);
+            statement.setString(3, price);
+            statement.setString(4, quantity);
+            statement.setString(5, company);
+
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(null, "Medicine added successfully!");
+                fetchMedicines();
+                clearFields();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error adding medicine: " + e.getMessage());
         }
     }//GEN-LAST:event_buttonAddActionPerformed
 
@@ -349,25 +393,22 @@ public class Medicines extends javax.swing.JFrame {
 
     private void tableMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMedicineMouseClicked
         // TODO add your handling code here:
-        
-        DefaultTableModel tb1Model = (DefaultTableModel)tableMedicine.getModel();
-        
-        String tb1id = tb1Model.getValueAt(tableMedicine.getSelectedRow(),0).toString();
-        String tb1medicine = tb1Model.getValueAt(tableMedicine.getSelectedRow(),1).toString();
-        String tb1price = tb1Model.getValueAt(tableMedicine.getSelectedRow(),2).toString();
-        String tb1quantity = tb1Model.getValueAt(tableMedicine.getSelectedRow(),3).toString();
-        String tb1production = tb1Model.getValueAt(tableMedicine.getSelectedRow(),4).toString();
-        String tb1expiry = tb1Model.getValueAt(tableMedicine.getSelectedRow(),5).toString();
-        String tb1company = tb1Model.getValueAt(tableMedicine.getSelectedRow(),6).toString();
-        
-        tfID.setText(tb1id);
-        tfMedicine.setText(tb1medicine);
-        tfPrice.setText(tb1price);
-        tfQuantity.setText(tb1quantity);
-        cbCompany.setSelectedItem(tb1company);
+DefaultTableModel tb1Model = (DefaultTableModel) tableMedicine.getModel();
+        tfID.setText(tb1Model.getValueAt(tableMedicine.getSelectedRow(), 0).toString());
+        tfMedicine.setText(tb1Model.getValueAt(tableMedicine.getSelectedRow(), 1).toString());
+        tfPrice.setText(tb1Model.getValueAt(tableMedicine.getSelectedRow(), 2).toString());
+        tfQuantity.setText(tb1Model.getValueAt(tableMedicine.getSelectedRow(), 3).toString());
+        cbCompany.setSelectedItem(tb1Model.getValueAt(tableMedicine.getSelectedRow(), 4).toString());
         
     }//GEN-LAST:event_tableMedicineMouseClicked
 
+        private void clearFields() {
+        tfID.setText("");
+        tfMedicine.setText("");
+        tfPrice.setText("");
+        tfQuantity.setText("");
+        cbCompany.setSelectedIndex(0);
+    }
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
         // TODO add your handling code here:
         

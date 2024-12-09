@@ -51,7 +51,7 @@ public class emergencyLogin extends javax.swing.JFrame {
 
         selectEmerRole.setForeground(new java.awt.Color(255, 255, 255));
         selectEmerRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Police", "Police Admin" }));
-        jPanel1.add(selectEmerRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 105, -1));
+        jPanel1.add(selectEmerRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 140, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
@@ -63,13 +63,13 @@ public class emergencyLogin extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
 
-        jLabelTitleEmergencyLogin.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jLabelTitleEmergencyLogin.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabelTitleEmergencyLogin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitleEmergencyLogin.setText("Emergency Login");
-        jPanel1.add(jLabelTitleEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 134, -1));
+        jPanel1.add(jLabelTitleEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 134, -1));
 
         jLabelSymbolEmergencyLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPD-login logo.png"))); // NOI18N
-        jPanel1.add(jLabelSymbolEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, -10, 140, 190));
+        jPanel1.add(jLabelSymbolEmergencyLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 150, 210));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,8 +85,8 @@ public class emergencyLogin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Role:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 72, -1));
-        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 111, -1));
-        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 111, -1));
+        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 140, -1));
+        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 140, -1));
 
         btnPoliceBack.setBackground(new java.awt.Color(255, 255, 0));
         btnPoliceBack.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
@@ -98,7 +98,7 @@ public class emergencyLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnPoliceBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

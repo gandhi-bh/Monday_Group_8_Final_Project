@@ -61,13 +61,13 @@ public class crimeAction extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
         jPanel1.add(actionTxt);
-        actionTxt.setBounds(687, 363, 189, 22);
+        actionTxt.setBounds(687, 363, 189, 23);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Phone:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(600, 200, 70, 20);
+        jLabel2.setBounds(600, 200, 70, 17);
 
         viewBtn.setBackground(new java.awt.Color(255, 255, 0));
         viewBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -78,13 +78,13 @@ public class crimeAction extends javax.swing.JFrame {
             }
         });
         jPanel1.add(viewBtn);
-        viewBtn.setBounds(389, 402, 108, 25);
+        viewBtn.setBounds(389, 402, 107, 23);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Address:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(590, 242, 58, 20);
+        jLabel3.setBounds(590, 242, 61, 17);
 
         submitBtn.setBackground(new java.awt.Color(255, 255, 0));
         submitBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -95,40 +95,40 @@ public class crimeAction extends javax.swing.JFrame {
             }
         });
         jPanel1.add(submitBtn);
-        submitBtn.setBounds(687, 402, 73, 25);
+        submitBtn.setBounds(687, 402, 74, 23);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Crime Details:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(560, 280, 100, 20);
+        jLabel4.setBounds(550, 280, 110, 17);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Crime Action ");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(340, 40, 197, 26);
+        jLabel7.setBounds(340, 70, 197, 26);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Officer Name:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(560, 320, 100, 20);
+        jLabel5.setBounds(560, 320, 100, 17);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Action Taken:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(560, 360, 100, 20);
+        jLabel6.setBounds(560, 360, 100, 17);
 
         nameTxt.setEnabled(false);
         jPanel1.add(nameTxt);
-        nameTxt.setBounds(687, 158, 189, 22);
+        nameTxt.setBounds(687, 158, 189, 23);
 
         phoneTxt.setEnabled(false);
         jPanel1.add(phoneTxt);
-        phoneTxt.setBounds(687, 199, 189, 22);
+        phoneTxt.setBounds(687, 199, 189, 23);
 
         addressTxt.setEnabled(false);
         addressTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class crimeAction extends javax.swing.JFrame {
             }
         });
         jPanel1.add(addressTxt);
-        addressTxt.setBounds(687, 240, 189, 22);
+        addressTxt.setBounds(687, 240, 189, 23);
 
         crimeTable.setBackground(new java.awt.Color(0, 0, 51));
         crimeTable.setForeground(new java.awt.Color(153, 0, 0));
@@ -166,7 +166,7 @@ public class crimeAction extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cdTxt);
-        cdTxt.setBounds(687, 281, 189, 22);
+        cdTxt.setBounds(687, 281, 189, 23);
 
         officerTxt.setEnabled(false);
         officerTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -175,13 +175,13 @@ public class crimeAction extends javax.swing.JFrame {
             }
         });
         jPanel1.add(officerTxt);
-        officerTxt.setBounds(687, 322, 189, 22);
+        officerTxt.setBounds(687, 322, 189, 23);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(607, 160, 44, 20);
+        jLabel1.setBounds(607, 160, 44, 17);
 
         btnStudLogout.setBackground(new java.awt.Color(153, 0, 0));
         btnStudLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -193,9 +193,9 @@ public class crimeAction extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnStudLogout);
-        btnStudLogout.setBounds(800, 20, 74, 25);
+        btnStudLogout.setBounds(800, 20, 75, 23);
 
-        jButton1.setText("Bank");
+        jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -204,7 +204,7 @@ public class crimeAction extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(10, 10, 80, 23);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Police_12.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NUPDbg.jpg"))); // NOI18N
         jPanel1.add(jLabel8);
         jLabel8.setBounds(0, 0, 900, 500);
 
@@ -279,35 +279,49 @@ public class crimeAction extends javax.swing.JFrame {
     
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
-        
-        String name = nameTxt.getText();
-        
-        int phone = Integer.parseInt(phoneTxt.getText());
-        String address = addressTxt.getText();
-        String cd = cdTxt.getText();
-        String officer = officerTxt.getText();
-        String action = actionTxt.getText();
+    // Collect data from input fields
+    String name = nameTxt.getText();
+    String phone = phoneTxt.getText(); // Keep as String
+    String address = addressTxt.getText();
+    String cd = cdTxt.getText();
+    String officer = officerTxt.getText();
+    String action = actionTxt.getText();
 
-        
+    // Check if mandatory fields are empty
+    if (name.isEmpty() || phone.isEmpty() || address.isEmpty() || cd.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please enter all details!");
+        return;
+    }
 
-        
-       
-       
-        
-        if(addressTxt.getText().isEmpty()|| nameTxt.getText().isEmpty()||phoneTxt.getText().isEmpty()||cdTxt.getText().isEmpty()           ){
-                 JOptionPane.showMessageDialog(null, "Plz Enter Details!");
+    try {
+        // Establish connection to the database
+        java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitysystem", "root", "user1234");
 
-        
-        } else{
+        // Insert into the crimedetails table
+        String insertQuery = "INSERT INTO crimedetails (name, phone, address, crimeDetails, officer, action) VALUES (?, ?, ?, ?, ?, ?)";
+        java.sql.PreparedStatement preparedStmt = connection.prepareStatement(insertQuery);
+        preparedStmt.setString(1, name);
+        preparedStmt.setString(2, phone); // Phone remains as String
+        preparedStmt.setString(3, address);
+        preparedStmt.setString(4, cd);
+        preparedStmt.setString(5, officer);
+        preparedStmt.setString(6, action);
 
-        
-        // Community.CreateCommunity(house,person,community,city,hospital);
-         //CrimeDetails.CreateCrimeDetails(name,phone,address,cd,officer,action);
-         crimeaction action1 =  new crimeaction(name,phone,address,cd,officer,action);
-               action1.addaction();
-        }
-        
-//        
+        preparedStmt.execute();
+        JOptionPane.showMessageDialog(null, "Details successfully added!");
+
+        // Clear input fields after submission
+        nameTxt.setText("");
+        phoneTxt.setText("");
+        addressTxt.setText("");
+        cdTxt.setText("");
+        officerTxt.setText("");
+        actionTxt.setText("");
+
+        connection.close();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
 
 
     }//GEN-LAST:event_submitBtnActionPerformed

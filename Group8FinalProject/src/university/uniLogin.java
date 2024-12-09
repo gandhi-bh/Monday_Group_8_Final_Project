@@ -91,7 +91,7 @@ public class uniLogin extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 421, -1, -1));
 
-        jLabelTitlelogin.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
+        jLabelTitlelogin.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabelTitlelogin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitlelogin.setText("University Login");
         jPanel1.add(jLabelTitlelogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 243, -1, -1));

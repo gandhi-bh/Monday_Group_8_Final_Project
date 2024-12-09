@@ -84,9 +84,9 @@ public class bankServicesPolice extends javax.swing.JFrame {
         jLabel2.setText("Username:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel1.setText("Welcome Users");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
         jLabelBankServicesLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/northeastern-university-student-financial-services-2-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabelBankServicesLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(298, 99, -1, 84));
@@ -108,7 +108,7 @@ public class bankServicesPolice extends javax.swing.JFrame {
                 btnStudLogoutActionPerformed(evt);
             }
         });
-        jPanel1.add(btnStudLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(779, 39, -1, -1));
+        jPanel1.add(btnStudLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, -1, -1));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N

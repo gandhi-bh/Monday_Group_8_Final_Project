@@ -50,18 +50,18 @@ public class financialLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        jLabelFinanceTitle.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        jLabelFinanceTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelFinanceTitle.setText("Financial Login");
         jPanel1.add(jLabelFinanceTitle);
-        jLabelFinanceTitle.setBounds(390, 100, 131, 23);
+        jLabelFinanceTitle.setBounds(390, 50, 150, 23);
 
         jLabelLOGOfinance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/northeastern-university-student-financial-services-2-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabelLOGOfinance);
-        jLabelLOGOfinance.setBounds(350, 100, 0, 135);
+        jLabelLOGOfinance.setBounds(350, 100, 290, 135);
 
         jLabelLogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/northeasternuniversity_logoseal-2.png"))); // NOI18N
         jPanel1.add(jLabelLogo2);
-        jLabelLogo2.setBounds(250, 100, 0, 135);
+        jLabelLogo2.setBounds(250, 100, 95, 135);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
@@ -120,7 +120,7 @@ public class financialLogin extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toppng.com-vignette-png-19201080-overlay-photo-1920x1080.png"))); // NOI18N
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(0, 0, 900, 0);
+        jLabel5.setBounds(0, 0, 900, 504);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/(resized)360_F_57320294_h4BEO6momplKt9RcL4gpqaAzWzJYpmxM.png"))); // NOI18N
@@ -174,7 +174,7 @@ public class financialLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }   
         }else if(role.equals("Bank Admin")){
-            if(username.equals("admin") && password.equals("admin")){
+            if(username.equals("BANADMIN") && password.equals("7890")){
                 bankAdmin bakAdminObj = new bankAdmin();
                 setVisible(false);
                 bakAdminObj.setVisible(true);

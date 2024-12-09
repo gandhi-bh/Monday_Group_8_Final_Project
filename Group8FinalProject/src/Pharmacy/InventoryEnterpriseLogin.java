@@ -8,7 +8,7 @@ package Pharmacy;
 
 /**
  *
- * @author akshtalati
+ * @author varananavadiya
  */
 
 
